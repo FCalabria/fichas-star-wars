@@ -1,0 +1,199 @@
+<div class="col-xs-12">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Datos generales</h3>
+    </div>
+    <div class="panel-body">
+      <h4><span ng-bind="ch.name"></span><span ng-if="ch.sensitive" class="label label-success pull-right">Sensible a la fuerza</span></h4>
+      <div class="row">
+        <div class="col-xs-4">
+          <img ng-src="{{ch.imgUrl || vm.defaultPic}}" alt="{{ch.name}}" class="img-responsive"/>
+        </div>
+        <div class="col-xs-8">
+          <table class="table">
+            <tr>
+              <th>Jugador: </th>
+              <td ng-bind="ch.player"></td>
+              <th>Edad: </th>
+              <td ng-bind="ch.age"></td>
+            </tr>
+            <tr>
+              <th>Raza: </th>
+              <td ng-bind="ch.race"></td>
+              <th>Altura: </th>
+              <td ng-bind="ch.height"></td>
+            </tr>
+            <tr>
+              <th>Escala: </th>
+              <td ng-bind="ch.scale"></td>
+              <th>Peso: </th>
+              <td ng-bind="ch.weight"></td>
+            </tr>
+            <tr>
+              <th rowspan="3">Descripción: </th>
+              <td rowspan="3" ng-bind="ch.description"></td>
+              <th>Puntos FUDGE: </th>
+              <td ng-bind="ch.FUDGEPts"></td>
+            </tr>
+            <tr>
+              <th>Puntos del lado luminoso: </th>
+              <td ng-bind="ch.forcePts"></td>
+            </tr>
+            <tr>
+              <th>Puntos del lado oscuro: </th>
+              <td ng-bind="ch.darKSidePts"></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h3 class="panel-title">Atributos</h3>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+
+        <div class="col-xs-7">
+          Atributos primarios
+          <table class="table">
+            <tr>
+              <th>Destreza</th>
+              <td ng-bind="ch.attributes.des"></td>
+              <th>Conocimientos</th>
+              <td ng-bind="ch.attributes.con"></td>
+              <th>Mecánica</th>
+              <td ng-bind="ch.attributes.mec"></td>
+            </tr>
+            <tr>
+              <th>Fortaleza</th>
+              <td ng-bind="ch.attributes.for"></td>
+              <th>Técnica</th>
+              <td ng-bind="ch.attributes.tec"></td>
+              <th>Percepción</th>
+              <td ng-bind="ch.attributes.per"></td>
+            </tr>
+          </table>
+        </div>
+        <div class="col-xs-5">
+          Atributos secundarios
+          <table class="table">
+            <tr>
+              <th>FO base</th>
+              <td ng-bind="ch.attributes.foBase"></td>
+              <th>FD base</th>
+              <td ng-bind="ch.attributes.fdBase"></td>
+            </tr>
+            <tr>
+              <th>Iniciativa</th>
+              <td ng-bind="ch.attributes.ini"></td>
+              <th>Movimiento</th>
+              <td ng-bind="ch.attributes.mov"></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h3 class="panel-title">Rastreo de combate</h3>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-xs-12">
+          <table class="table lined-table">
+            <tr>
+              <th>Rastreo</th>
+              <td ng-repeat="cell in ch.healthAndFatigue" class="text-center">
+                <span ng-bind="cell.trackingFrom"></span>
+                <span ng-if="cell.trackingTo"> - {{cell.trackingTo}}</span>
+              </td>
+            </tr>
+            <tr>
+              <th>Heridas</th>
+              <td ng-repeat="cell in ch.healthAndFatigue" class="text-center">
+                <span ng-repeat-n="cell.points">O</span>
+              </td>
+            </tr>
+            <tr>
+              <th>Fatiga</th>
+              <td ng-repeat="cell in ch.healthAndFatigue" class="text-center">
+                <span ng-repeat-n="cell.points">O</span>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h3 class="panel-title">Habilidades</h3>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-xs-4" ng-repeat="(key, value) in ch.habilities track by $index" ng-class="{'clear-left' : $index === 3 || $index === 6}">
+          <table class="table">
+            <tr>
+              <th colspan="2" translate="{{'habilities-translations.' + key + '.main'}}"></th>
+            </tr>
+            <tr ng-repeat="(hab, val) in value">
+              <td>{{'habilities-translations.' + key + '.' +  hab | translate}} : </td>
+              <td ng-bind="val"></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h3 class="panel-title">Otros</h3>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-xs-12">
+          <table class="table">
+            <tr ng-if="ch.raceChar.length">
+              <th colspan="2">Características raciales</th>
+            </tr>
+            <tr ng-repeat="char in ch.raceChar" ng-if="ch.raceChar.length">
+              <td ng-repeat="(key, value) in char">{{key}} :</td>
+              <td ng-repeat="(key, value) in char">{{value}}</td>
+            </tr>
+            <tr ng-if="ch.gifts.length">
+              <th colspan="2">Dones</th>
+            </tr>
+            <tr ng-repeat="gift in ch.gifts" ng-if="ch.gifts.length">
+              <td ng-repeat="(key, value) in gift">{{key}} :</td>
+              <td ng-repeat="(key, value) in gift">{{value}}</td>
+            </tr>
+            <tr ng-if="ch.defaults.length">
+              <th colspan="2">Defectos</th>
+            </tr>
+            <tr ng-repeat="default in ch.defaults" ng-if="ch.defaults.length">
+              <td ng-repeat="(key, value) in default">{{key}} :</td>
+              <td ng-repeat="(key, value) in default">{{value}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h3 class="panel-title">Equipo</h3>
+    </div>
+    <div class="panel-body">
+      Panel content
+    </div>
+  </div>
+</div>

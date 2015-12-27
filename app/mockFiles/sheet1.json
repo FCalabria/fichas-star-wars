@@ -1,0 +1,112 @@
+{
+  "id" : "1",
+  "player": "Paqui Calabria",
+  "name": "Han Solo",
+  "imgUrl" : "http://www.ew.com/sites/default/files/styles/tout_image_612x380/public/i/2015/08/13/han-solo-return-of-the-jedi_612x380.jpg?itok=L7Yg8PNy",
+  "race": "Humano",
+  "age": 35,
+  "height": 1.75,
+  "weight": 79,
+  "scale": 0,
+  "sensitive" : true,
+  "FUDGEPts": 4,
+  "forcePts": 4,
+  "darKSidePts": 0,
+  "description": "Aquí iría un texto bien largo que no tengo ganas de escribir. Lorem ipsum amet sit dolor consectetum blablabla",
+  "attributes": {
+    "des" : 0,
+    "con" : -1,
+    "mec" : 3,
+    "per" : 0,
+    "for" : 1,
+    "tec" : 0,
+    "foBase" : 1,
+    "fdBase" : 1,
+    "ini" : 0,
+    "mov" : 5
+  },
+  "healthAndFatigue" : [
+    {"trackingFrom" : 0, "trackingTo" : 3, "points": 3},
+    {"trackingFrom" : 4, "trackingTo" : 6, "points": 3},
+    {"trackingFrom" : 7, "trackingTo" : 8, "points": 2},
+    {"trackingFrom" : 9, "trackingTo" : 10, "points": 1},
+    {"trackingFrom" : 11, "points": 1}
+  ],
+  "habilities" : {
+    "des" : {
+      "acrobacias" : 1,
+      "arcaicas" : 1,
+      "artesMarciales" : 1,
+      "blasters" : 1,
+      "cuerpoACuerpo" : 1,
+      "delito" : 1,
+      "esconderse" : 1,
+      "equilibrio" : 1,
+      "esquivar" : 1,
+      "pesadas" : 1,
+      "sableDeLuz" : 1,
+      "sigilo" : 1
+    },
+    "con" : {
+      "alienigenas" : 1,
+      "bajosFondos" : 1,
+      "burocracia" : 1,
+      "ciencia" : 1,
+      "cultura" : 1,
+      "lenguas" : 1,
+      "sistPlanetarios" : 1,
+      "supervivencia" : 1,
+      "tecnologia" : 1
+    },
+    "mec" : {
+      "artilleria" : 1,
+      "astrogracion" : 1,
+      "cabalgar" : 1,
+      "comunicaciones" : 1,
+      "condTierra" : 1,
+      "escudos" : 1,
+      "pilAndadores" : 1,
+      "pilAstronave" : 1,
+      "repulsores" : 1,
+      "sensores" : 1
+    },
+    "per" : {
+
+    },
+    "for" : {
+
+    },
+    "tec" : {
+
+    },
+    "force" : {
+      "controlar" : 0,
+      "sentir" : 0,
+      "alterar" : 0
+    }
+  },
+  "raceChar": [],
+  "gifts" : [
+    {"Afortunado" : "Descripción del don"},
+    {"Buena vista" : "Percepcion +3, por ejemplo"}
+  ],
+  "defaults": [
+    {"Mal temperamento" : "otra descripción"}
+  ],
+  "weapons" : [
+    {"pistola blaster": {
+      "fo" : 3,
+      "range" : [3, 8, 20, 40],
+      "notes" : ""
+      }}
+  ],
+  "armour" : [
+    {"casco" : {
+        "fd": 1,
+        "notes" : "Solo para la cabeza"
+    }}
+  ],
+  "equipment" : [
+    {"Kit de reparación de naves" : "Herramientas y algún recambio básico para reparar naves"}
+  ]
+}

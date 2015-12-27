@@ -1,0 +1,59 @@
+{
+  "habilities-translations" : {
+    "des" : {
+      "main" : "Destreza",
+      "acrobacias" : "Acrobacias",
+      "arcaicas" : "Armas arcaicas",
+      "artesMarciales" : "Artes marciales",
+      "blasters" : "Blásters",
+      "cuerpoACuerpo" : "Cuerpo a cuerpo",
+      "delito" : "Delito",
+      "esconderse" : "Esconderse",
+      "equilibrio" : "Equilibrio",
+      "esquivar" : "Esquivar",
+      "pesadas" : "Armas pesadas",
+      "sableDeLuz" : "Sable de luz",
+      "sigilo" : "Sigilo"
+      },
+    "con" : {
+      "main": "Conocimientos",
+      "alienigenas" : "Alienígenas",
+      "bajosFondos" : "Bajos fondos",
+      "burocracia" : "Burocracia",
+      "ciencia" : "Ciencia",
+      "cultura" : "Cultura",
+      "lenguas" : "Lenguas",
+      "sistPlanetarios" : "Sistemas planetarios",
+      "supervivencia" : "Supervivencia",
+      "tecnologia" : "Tecnología"
+    },
+    "mec" : {
+      "main": "Mecánica",
+      "artilleria" : "Artillería",
+      "astrogracion" : "Astrogración",
+      "cabalgar" : "Cabalgar",
+      "comunicaciones" : "Comunicaciones",
+      "condTierra" : "Conducir vehículos de tierra",
+      "escudos" : "Escudos deflectores",
+      "pilAndadores" : "Pilotar andadores",
+      "pilAstronave" : "Pilotar astronaves",
+      "repulsores" : "Repulsores",
+      "sensores" : "Sensores"
+    },
+    "per" : {
+      "main" : "Percepción"
+    },
+    "for" : {
+      "main" : "Fortaleza"
+    },
+    "tec" : {
+      "main" : "Tecnología"
+    },
+    "force" : {
+      "main" : "Habilidades de la fuerza",
+      "controlar" : "Controlar",
+      "sentir" : "Sentir",
+      "alterar" : "Alterar"
+    }
+  }
+}
