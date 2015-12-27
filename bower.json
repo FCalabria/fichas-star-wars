@@ -1,0 +1,19 @@
+{
+  "name": "fichas-star-wars",
+  "version": "0.0.0",
+  "main": "app.js",
+  "license": "CCA",
+  "private": false,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.3.13",
+    "angular-route": "~1.3.13",
+    "angular-sanitize": "~1.3.13"
+  }
+}
