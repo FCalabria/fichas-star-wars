@@ -2,6 +2,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
+@import "variables.scss";
 @import "footer.scss";
 .browsehappy {
   margin: 0.2em 0;
@@ -75,6 +76,11 @@ body {
 }
 .clear-right {
   clear: right;
+}
+.table.stripped-table {
+  th, td {
+  border: $basic-clear-border;
+  }
 }
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {

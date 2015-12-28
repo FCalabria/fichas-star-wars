@@ -14,16 +14,16 @@
   "darKSidePts": 0,
   "description": "Aquí iría un texto bien largo que no tengo ganas de escribir. Lorem ipsum amet sit dolor consectetum blablabla",
   "attributes": {
-    "des" : 0,
-    "con" : -1,
-    "mec" : 3,
-    "per" : 0,
-    "for" : 1,
-    "tec" : 0,
-    "foBase" : 1,
-    "fdBase" : 1,
-    "ini" : 0,
-    "mov" : 5
+    "des" : [0],
+    "con" : [-1],
+    "mec" : [3],
+    "per" : [0, 2],
+    "for" : [1],
+    "tec" : [0],
+    "foBase" : [1],
+    "fdBase" : [1],
+    "ini" : [0],
+    "mov" : [5]
   },
   "healthAndFatigue" : [
     {"trackingFrom" : 0, "trackingTo" : 3, "points": 3},
@@ -34,79 +34,122 @@
   ],
   "habilities" : {
     "des" : {
-      "acrobacias" : 1,
-      "arcaicas" : 1,
-      "artesMarciales" : 1,
-      "blasters" : 1,
-      "cuerpoACuerpo" : 1,
-      "delito" : 1,
-      "esconderse" : 1,
-      "equilibrio" : 1,
-      "esquivar" : 1,
-      "pesadas" : 1,
-      "sableDeLuz" : 1,
-      "sigilo" : 1
+      "acrobacias" : [1],
+      "arcaicas" : [1],
+      "artesMarciales" : [1],
+      "blasters" : [1],
+      "cuerpoACuerpo" : [1],
+      "delito" : [1],
+      "esconderse" : [1],
+      "equilibrio" : [1],
+      "esquivar" : [1],
+      "pesadas" : [1],
+      "sableDeLuz" : [1],
+      "sigilo" : [1]
     },
     "con" : {
-      "alienigenas" : 1,
-      "bajosFondos" : 1,
-      "burocracia" : 1,
-      "ciencia" : 1,
-      "cultura" : 1,
-      "lenguas" : 1,
-      "sistPlanetarios" : 1,
-      "supervivencia" : 1,
-      "tecnologia" : 1
+      "alienigenas" : [1],
+      "bajosFondos" : [1],
+      "burocracia" : [1],
+      "ciencia" : [1],
+      "cultura" : [1],
+      "lenguas" : [1],
+      "sistPlanetarios" : [1],
+      "supervivencia" : [1],
+      "tecnologia" : [1]
     },
     "mec" : {
-      "artilleria" : 1,
-      "astrogracion" : 1,
-      "cabalgar" : 1,
-      "comunicaciones" : 1,
-      "condTierra" : 1,
-      "escudos" : 1,
-      "pilAndadores" : 1,
-      "pilAstronave" : 1,
-      "repulsores" : 1,
-      "sensores" : 1
+      "artilleria" : [1],
+      "astrogracion" : [1],
+      "cabalgar" : [1],
+      "comunicaciones" : [1],
+      "condTierra" : [1],
+      "escudos" : [1],
+      "pilAndadores" : [1],
+      "pilAstronave" : [1],
+      "repulsores" : [1],
+      "sensores" : [1]
     },
     "per" : {
-
+        "atencion" : [1],
+        "avIntenciones" : [1],
+        "buscar" : [1],
+        "instruccion" : [1],
+        "interrogar" : [1],
+        "intimidar" : [1],
+        "jugar" : [1],
+        "liderazgo" : [1],
+        "negociar" : [1],
+        "orientacion" : [1],
+        "persuadir" : [1],
+        "rastrear" : [1],
+        "reconocimiento" : [1],
+        "timar" : [1]
     },
     "for" : {
-
+      "armArrojadizas" : [1],
+      "correr" : [1],
+      "escalar" : [1],
+      "nadar" : [1],
+      "pelea" : [1],
+      "saltar" : [1],
+      "voluntad" : [1]
     },
     "tec" : {
-
+      "demolicion" : [1],
+      "primAuxilios" : [1],
+      "progComputadores" : [1],
+      "progDroides" : [1],
+      "repNaves" : [1],
+      "repRepulsores" : [1],
+      "repSables" : [1],
+      "seguridad" : [1]
     },
     "force" : {
-      "controlar" : 0,
-      "sentir" : 0,
-      "alterar" : 0
+      "controlar" : [0],
+      "sentir" : [0],
+      "alterar" : [0]
     }
   },
   "raceChar": [],
   "gifts" : [
-    {"Afortunado" : "Descripción del don"},
-    {"Buena vista" : "Percepcion +3, por ejemplo"}
+    {
+      "name" : "Afortunado",
+      "description" : "Repetir tiradas",
+      "effect" : []
+    },
+    {
+      "name" : "Buena vista",
+      "description" : "Bonus +2 a percepción cuando proceda",
+      "effect" : ["attributes.per", 2]
+    }
   ],
   "defaults": [
-    {"Mal temperamento" : "otra descripción"}
+    {
+      "name" : "Mal temperamento",
+      "description" : "Interpretativo",
+      "effect" : []
+    }
   ],
   "weapons" : [
-    {"pistola blaster": {
+    {
+      "name" : "Pistola blaster",
       "fo" : 3,
       "range" : [3, 8, 20, 40],
       "notes" : ""
-      }}
+      }
   ],
   "armour" : [
-    {"casco" : {
+    {
+      "name" : "Casco",
         "fd": 1,
-        "notes" : "Solo para la cabeza"
-    }}
+        "notes" : "Solo cubre la cabeza"
+    }
   ],
   "equipment" : [
-    {"Kit de reparación de naves" : "Herramientas y algún recambio básico para reparar naves"}
+    {
+      "name" : "Kit de reparación de naves",
+      "description" : "Herramientas y algún recambio básico para reparar naves"
+    }
   ]
 }

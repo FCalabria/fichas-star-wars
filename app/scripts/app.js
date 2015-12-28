@@ -16,6 +16,7 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
+    'ui.bootstrap',
     'angular-repeat-n',
     'pascalprecht.translate'
   ])

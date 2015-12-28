@@ -41,13 +41,42 @@
       "sensores" : "Sensores"
     },
     "per" : {
-      "main" : "Percepción"
+      "main" : "Percepción",
+      "atencion" : "Atención",
+      "avIntenciones" : "Averiguar intenciones",
+      "buscar" : "Buscar",
+      "instruccion" : "Instrucción",
+      "interrogar" : "Interrogar",
+      "intimidar" : "Intimidar",
+      "jugar" : "Jugar",
+      "liderazgo" : "Liderazgo",
+      "negociar" : "Negociar",
+      "orientacion" : "Orientación",
+      "persuadir" : "Persuadir",
+      "rastrear" : "Rastrear",
+      "reconocimiento" : "Reconocimiento",
+      "timar" : "Timar"
     },
     "for" : {
-      "main" : "Fortaleza"
+      "main" : "Fortaleza",
+      "armArrojadizas" : "Armas arrojadizas",
+      "correr" : "Correr",
+      "escalar" : "Escalar",
+      "nadar" : "Nadar",
+      "pelea" : "Pelea",
+      "saltar" : "Saltar",
+      "voluntad" : "Voluntad"
     },
     "tec" : {
-      "main" : "Tecnología"
+      "main" : "Tecnología",
+      "demolicion" : "Demolición",
+      "primAuxilios" : "Primeros auxilios",
+      "progComputadores" : "Programar/reparar computadores",
+      "progDroides" : "Programar/reparar droides",
+      "repNaves" : "Reparar naves",
+      "repRepulsores" : "Reparar repulsores",
+      "repSables" : "Reparar sables de luz",
+      "seguridad" : "Seguridad"
     },
     "force" : {
       "main" : "Habilidades de la fuerza",

@@ -1,15 +1,15 @@
 <div class="col-xs-12">
   <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h3 class="panel-title">Datos generales</h3>
+    <div class="panel-heading" ng-click="chGeneralCollapsed = !chGeneralCollapsed">
+      <h3 class="panel-title">Datos generales<span class="pull-right glyphicon glyphicon" ng-class="chGeneralCollapsed ? 'glyphicon-collapse-down' : 'glyphicon-collapse-up'"></span></h3>
     </div>
-    <div class="panel-body">
+    <div class="panel-body" uib-collapse="chGeneralCollapsed">
       <h4><span ng-bind="ch.name"></span><span ng-if="ch.sensitive" class="label label-success pull-right">Sensible a la fuerza</span></h4>
       <div class="row">
-        <div class="col-xs-4">
+        <div class="col-xs-2 col-md-4">
           <img ng-src="{{ch.imgUrl || vm.defaultPic}}" alt="{{ch.name}}" class="img-responsive"/>
         </div>
-        <div class="col-xs-8">
+        <div class="col-xs-10 col-md-8">
           <table class="table">
             <tr>
               <th>Jugador: </th>
@@ -50,47 +50,47 @@
   </div>
 
   <div class="panel panel-info">
-    <div class="panel-heading">
-      <h3 class="panel-title">Atributos</h3>
+    <div class="panel-heading" ng-click="chAttributesCollapsed = !chAttributesCollapsed">
+      <h3 class="panel-title">Atributos<span class="pull-right glyphicon glyphicon" ng-class="chAttributesCollapsed ? 'glyphicon-collapse-down' : 'glyphicon-collapse-up'"></span></h3>
     </div>
-    <div class="panel-body">
+    <div class="panel-body" uib-collapse="chAttributesCollapsed">
       <div class="row">
 
-        <div class="col-xs-7">
+        <div class="col-xs-12 col-sm-7">
           Atributos primarios
           <table class="table">
             <tr>
               <th>Destreza</th>
-              <td ng-bind="ch.attributes.des"></td>
+              <td>{{ch.attributes.des[0]}} <span ng-if="ch.attributes.des.length > 1"> ({{ch.attributes.des[1]}})</span></td>
               <th>Conocimientos</th>
-              <td ng-bind="ch.attributes.con"></td>
+              <td>{{ch.attributes.con[0]}} <span ng-if="ch.attributes.con.length > 1"> ({{ch.attributes.con[1]}})</span></td>
               <th>Mecánica</th>
-              <td ng-bind="ch.attributes.mec"></td>
+              <td>{{ch.attributes.mec[0]}} <span ng-if="ch.attributes.mec.length > 1"> ({{ch.attributes.mec[1]}})</span></td>
             </tr>
             <tr>
               <th>Fortaleza</th>
-              <td ng-bind="ch.attributes.for"></td>
+              <td>{{ch.attributes.for[0]}} <span ng-if="ch.attributes.for.length > 1"> ({{ch.attributes.for[1]}})</span></td>
               <th>Técnica</th>
-              <td ng-bind="ch.attributes.tec"></td>
+              <td>{{ch.attributes.tec[0]}} <span ng-if="ch.attributes.tec.length > 1"> ({{ch.attributes.tec[1]}})</span></td>
               <th>Percepción</th>
-              <td ng-bind="ch.attributes.per"></td>
+              <td>{{ch.attributes.per[0]}} <span ng-if="ch.attributes.per.length > 1"> ({{ch.attributes.per[1]}})</span></td>
             </tr>
           </table>
         </div>
-        <div class="col-xs-5">
+        <div class="col-xs-12 col-sm-5">
           Atributos secundarios
           <table class="table">
             <tr>
               <th>FO base</th>
-              <td ng-bind="ch.attributes.foBase"></td>
+              <td>{{ch.attributes.foBase[0]}} <span ng-if="ch.attributes.foBase.length > 1"> ({{ch.attributes.foBase[1]}})</span></td>
               <th>FD base</th>
-              <td ng-bind="ch.attributes.fdBase"></td>
+              <td>{{ch.attributes.fdBase[0]}} <span ng-if="ch.attributes.fdBase.length > 1"> ({{ch.attributes.fdBase[1]}})</span></td>
             </tr>
             <tr>
               <th>Iniciativa</th>
-              <td ng-bind="ch.attributes.ini"></td>
+              <td>{{ch.attributes.ini[0]}} <span ng-if="ch.attributes.ini.length > 1"> ({{ch.attributes.ini[1]}})</span></td>
               <th>Movimiento</th>
-              <td ng-bind="ch.attributes.mov"></td>
+              <td>{{ch.attributes.mov[0]}} <span ng-if="ch.attributes.mov.length > 1"> ({{ch.attributes.mov[1]}})</span></td>
             </tr>
           </table>
         </div>
@@ -100,13 +100,13 @@
 
 
   <div class="panel panel-info">
-    <div class="panel-heading">
-      <h3 class="panel-title">Rastreo de combate</h3>
+    <div class="panel-heading" ng-click="chTrackingCollapsed = !chTrackingCollapsed">
+      <h3 class="panel-title">Rastreo de combate<span class="pull-right glyphicon glyphicon" ng-class="chTrackingCollapsed ? 'glyphicon-collapse-down' : 'glyphicon-collapse-up'"></span></h3>
     </div>
-    <div class="panel-body">
+    <div class="panel-body" uib-collapse="chTrackingCollapsed">
       <div class="row">
         <div class="col-xs-12">
-          <table class="table lined-table">
+          <table class="table stripped-table">
             <tr>
               <th>Rastreo</th>
               <td ng-repeat="cell in ch.healthAndFatigue" class="text-center">
@@ -133,19 +133,19 @@
   </div>
 
   <div class="panel panel-info">
-    <div class="panel-heading">
-      <h3 class="panel-title">Habilidades</h3>
+    <div class="panel-heading" ng-click="chHabilitiesCollapsed = !chHabilitiesCollapsed">
+      <h3 class="panel-title">Habilidades<span class="pull-right glyphicon glyphicon" ng-class="chHabilitiesCollapsed ? 'glyphicon-collapse-down' : 'glyphicon-collapse-up'"></span></h3>
     </div>
-    <div class="panel-body">
+    <div class="panel-body" uib-collapse="chHabilitiesCollapsed">
       <div class="row">
-        <div class="col-xs-4" ng-repeat="(key, value) in ch.habilities track by $index" ng-class="{'clear-left' : $index === 3 || $index === 6}">
+        <div class="col-xs-4" ng-repeat="(key, value) in ch.habilities track by $index" ng-class="{'clear-left' : $index === 3}">
           <table class="table">
             <tr>
               <th colspan="2" translate="{{'habilities-translations.' + key + '.main'}}"></th>
             </tr>
             <tr ng-repeat="(hab, val) in value">
               <td>{{'habilities-translations.' + key + '.' +  hab | translate}} : </td>
-              <td ng-bind="val"></td>
+              <td ng-bind="val[0]"></td>
             </tr>
           </table>
         </div>
@@ -154,10 +154,10 @@
   </div>
 
   <div class="panel panel-info">
-    <div class="panel-heading">
-      <h3 class="panel-title">Otros</h3>
+    <div class="panel-heading" ng-click="chOthersCollapsed = !chOthersCollapsed">
+      <h3 class="panel-title">Otros<span class="pull-right glyphicon glyphicon" ng-class="chOthersCollapsed ? 'glyphicon-collapse-down' : 'glyphicon-collapse-up'"></span></h3>
     </div>
-    <div class="panel-body">
+    <div class="panel-body" uib-collapse="chOthersCollapsed">
       <div class="row">
         <div class="col-xs-12">
           <table class="table">
@@ -165,22 +165,22 @@
               <th colspan="2">Características raciales</th>
             </tr>
             <tr ng-repeat="char in ch.raceChar" ng-if="ch.raceChar.length">
-              <td ng-repeat="(key, value) in char">{{key}} :</td>
-              <td ng-repeat="(key, value) in char">{{value}}</td>
+              <td>{{char.name}} :</td>
+              <td>{{char.description}}</td>
             </tr>
             <tr ng-if="ch.gifts.length">
               <th colspan="2">Dones</th>
             </tr>
             <tr ng-repeat="gift in ch.gifts" ng-if="ch.gifts.length">
-              <td ng-repeat="(key, value) in gift">{{key}} :</td>
-              <td ng-repeat="(key, value) in gift">{{value}}</td>
+                <td>{{gift.name}} :</td>
+                <td>{{gift.description}}</td>
             </tr>
             <tr ng-if="ch.defaults.length">
               <th colspan="2">Defectos</th>
             </tr>
             <tr ng-repeat="default in ch.defaults" ng-if="ch.defaults.length">
-              <td ng-repeat="(key, value) in default">{{key}} :</td>
-              <td ng-repeat="(key, value) in default">{{value}}</td>
+                <td>{{default.name}} :</td>
+                <td>{{default.description}}</td>
             </tr>
           </table>
         </div>
@@ -189,11 +189,56 @@
   </div>
 
   <div class="panel panel-info">
-    <div class="panel-heading">
-      <h3 class="panel-title">Equipo</h3>
+    <div class="panel-heading" ng-click="chEquipmentCollapsed = !chEquipmentCollapsed">
+      <h3 class="panel-title">Equipo<span class="pull-right glyphicon glyphicon" ng-class="chEquipmentCollapsed ? 'glyphicon-collapse-down' : 'glyphicon-collapse-up'"></span></h3>
     </div>
-    <div class="panel-body">
-      Panel content
+    <div class="panel-body" uib-collapse="chEquipmentCollapsed">
+      <div class="row">
+        <div class="col-xs-12 col-md-8">
+          Armas
+          <table class="table stripped-table">
+            <tr>
+              <th>Arma</th>
+              <th>FO</th>
+              <th colspan="4" class="text-center">Rango</th>
+              <th>Notas</th>
+            </tr>
+            <tr ng-repeat="weapon in ch.weapons">
+              <th>{{weapon.name}} : </th>
+              <td ng-bind="weapon.fo"></td>
+              <td ng-bind="weapon.range[0]"></td>
+              <td ng-bind="weapon.range[1]"></td>
+              <td ng-bind="weapon.range[2]"></td>
+              <td ng-bind="weapon.range[3]"></td>
+              <td ng-bind="weapon.notes"></td>
+            </tr>
+          </table>
+        </div>
+        <div class="col-xs-12 col-md-4">
+          Armaduras
+          <table class="table stripped-table">
+            <tr>
+              <th>Armadura</th>
+              <th>FD</th>
+              <th>Notas</th>
+            </tr>
+            <tr ng-repeat="armour in ch.armour">
+              <th>{{armour.name}} : </th>
+              <td ng-bind="armour.fd"></td>
+              <td ng-bind="armour.notes"></td>
+            </tr>
+          </table>
+        </div>
+        <div class="col-xs-12">
+          Otro equipo
+          <table class="table">
+            <tr ng-repeat="item in ch.equipment">
+              <th>{{item.name}} : </th>
+              <td ng-bind="item.description"></td>
+            </tr>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 </div>
