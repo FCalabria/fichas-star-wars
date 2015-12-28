@@ -105,6 +105,83 @@ angular.module('starWarsCharacter', [])
         charact.habilities.tec = charact.habilities.tec || {};
         charact.habilities.force = charact.habilities.force || {};
 
+        var desDefault = charact.attributes.des - 2;
+        charact.habilities.des.acrobacias = charact.habilities.des.acrobacias || [desDefault];
+        charact.habilities.des.arcaicas = charact.habilities.des.arcaicas || [desDefault];
+        charact.habilities.des.artesMarciales = charact.habilities.des.artesMarciales || [desDefault];
+        charact.habilities.des.blasters = charact.habilities.des.blasters || [desDefault];
+        charact.habilities.des.cuerpoACuerpo = charact.habilities.des.cuerpoACuerpo || [desDefault];
+        charact.habilities.des.delito = charact.habilities.des.delito || [desDefault];
+        charact.habilities.des.esconderse = charact.habilities.des.esconderse || [desDefault];
+        charact.habilities.des.equilibrio = charact.habilities.des.equilibrio || [desDefault];
+        charact.habilities.des.esquivar = charact.habilities.des.esquivar || [desDefault];
+        charact.habilities.des.pesadas = charact.habilities.des.pesadas || [desDefault];
+        charact.habilities.des.sableDeLuz = charact.habilities.des.sableDeLuz || [desDefault];
+        charact.habilities.des.sigilo = charact.habilities.des.sigilo || [desDefault];
+
+        var conDefault = charact.attributes.con - 2;
+        charact.habilities.con.alienigenas = charact.habilities.con.alienigenas || [conDefault];
+        charact.habilities.con.bajosFondos = charact.habilities.con.bajosFondos || [conDefault];
+        charact.habilities.con.burocracia = charact.habilities.con.burocracia || [conDefault];
+        charact.habilities.con.ciencia = charact.habilities.con.ciencia || [conDefault];
+        charact.habilities.con.cultura = charact.habilities.con.cultura || [conDefault];
+        charact.habilities.con.lenguas = charact.habilities.con.lenguas || [conDefault];
+        charact.habilities.con.sistPlanetarios = charact.habilities.con.sistPlanetarios || [conDefault];
+        charact.habilities.con.supervivencia = charact.habilities.con.supervivencia || [conDefault];
+        charact.habilities.con.tecnologia = charact.habilities.con.tecnologia || [conDefault];
+
+        var mecDefault = charact.attributes.mec - 2;
+        charact.habilities.mec.artilleria = charact.habilities.mec.artilleria || [mecDefault];
+        charact.habilities.mec.astrogracion = charact.habilities.mec.astrogracion || [mecDefault];
+        charact.habilities.mec.cabalgar = charact.habilities.mec.cabalgar || [mecDefault];
+        charact.habilities.mec.comunicaciones = charact.habilities.mec.comunicaciones || [mecDefault];
+        charact.habilities.mec.condTierra = charact.habilities.mec.condTierra || [mecDefault];
+        charact.habilities.mec.escudos = charact.habilities.mec.escudos || [mecDefault];
+        charact.habilities.mec.pilAndadores = charact.habilities.mec.pilAndadores || [mecDefault];
+        charact.habilities.mec.pilAstronave = charact.habilities.mec.pilAstronave || [mecDefault];
+        charact.habilities.mec.repulsores = charact.habilities.mec.repulsores || [mecDefault];
+        charact.habilities.mec.sensores = charact.habilities.mec.sensores || [mecDefault];
+
+        var perDefault = charact.attributes.per - 2;
+        charact.habilities.per.atencion = charact.habilities.per.atencion || [perDefault];
+        charact.habilities.per.avIntenciones = charact.habilities.per.avIntenciones || [perDefault];
+        charact.habilities.per.buscar = charact.habilities.per.buscar || [perDefault];
+        charact.habilities.per.instruccion = charact.habilities.per.instruccion || [perDefault];
+        charact.habilities.per.interrogar = charact.habilities.per.interrogar || [perDefault];
+        charact.habilities.per.intimidar = charact.habilities.per.intimidar || [perDefault];
+        charact.habilities.per.jugar = charact.habilities.per.jugar || [perDefault];
+        charact.habilities.per.liderazgo = charact.habilities.per.liderazgo || [perDefault];
+        charact.habilities.per.negociar = charact.habilities.per.negociar || [perDefault];
+        charact.habilities.per.orientacion = charact.habilities.per.orientacion || [perDefault];
+        charact.habilities.per.persuadir = charact.habilities.per.persuadir || [perDefault];
+        charact.habilities.per.rastrear = charact.habilities.per.rastrear || [perDefault];
+        charact.habilities.per.reconocimiento = charact.habilities.per.reconocimiento || [perDefault];
+        charact.habilities.per.timar = charact.habilities.per.timar || [perDefault];
+
+        var forDefault = charact.attributes.for - 2;
+        charact.habilities.for.armArrojadizas = charact.habilities.for.armArrojadizas || [forDefault];
+        charact.habilities.for.correr = charact.habilities.for.correr || [forDefault];
+        charact.habilities.for.escalar = charact.habilities.for.escalar || [forDefault];
+        charact.habilities.for.nadar = charact.habilities.for.nadar || [forDefault];
+        charact.habilities.for.pelea = charact.habilities.for.pelea || [forDefault];
+        charact.habilities.for.saltar = charact.habilities.for.saltar || [forDefault];
+        charact.habilities.for.voluntad = charact.habilities.for.voluntad || [forDefault];
+
+        var tecDefault = charact.attributes.tec - 2;
+        charact.habilities.tec.demolicion = charact.habilities.tec.demolicion || [tecDefault];
+        charact.habilities.tec.primAuxilios = charact.habilities.tec.primAuxilios || [tecDefault];
+        charact.habilities.tec.progComputadores = charact.habilities.tec.progComputadores || [tecDefault];
+        charact.habilities.tec.progDroides = charact.habilities.tec.progDroides || [tecDefault];
+        charact.habilities.tec.repNaves = charact.habilities.tec.repNaves || [tecDefault];
+        charact.habilities.tec.repRepulsores = charact.habilities.tec.repRepulsores || [tecDefault];
+        charact.habilities.tec.repSables = charact.habilities.tec.repSables || [tecDefault];
+        charact.habilities.tec.seguridad = charact.habilities.tec.seguridad || [tecDefault];
+
+        var forceDefault = -2;
+        charact.habilities.force.controlar = charact.habilities.force.controlar || [forceDefault];
+        charact.habilities.force.sentir = charact.habilities.force.sentir || [forceDefault];
+        charact.habilities.force.alterar = charact.habilities.force.alterar || [forceDefault];
+
         return charact;
       },
       calcFO : function(fort, scale) {
@@ -124,6 +201,27 @@ angular.module('starWarsCharacter', [])
         HaF = getHaFRange(HaF, des);
         HaF = getHaFPoints(HaF, fort);
         return HaF;
+      },
+      usedAttrPoints : function(attributes) {
+        return attributes.des[0] + attributes.mec[0] + attributes.tec[0] + attributes.con[0] + attributes.for[0] + attributes.per[0];
+      },
+      usedHabPoints : function(character) {
+        var attrs = character.attributes;
+        var habs = character.habilities;
+        var usedPoints = 0;
+        angular.forEach(habs, function(value, key) {
+          var initValue;
+          if (attrs.hasOwnProperty(key)) {
+            initValue = attrs[key][0] - 2;
+          } else {
+            initValue = -2;
+          }
+          angular.forEach(habs[key], function(value) {
+            usedPoints += value - initValue;
+          });
+        });
+
+        return usedPoints;
       }
 
     };

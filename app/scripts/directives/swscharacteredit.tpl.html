@@ -1,4 +1,4 @@
-<div class="col-xs-12">
+<div class="col-xs-12 character-sheet edit">
   <div class="col-xs-5">
     <h4>Puntos de desarrollo: {{vm.desPts}}</h4>
   </div>
@@ -45,24 +45,18 @@
               <input type="number" class="form-control" id="weight" ng-model="vm.character.weight">
             </div>
           </div>
-          <div class="form-group col-xs-6 col-sm-3">
-            <div class="checkbox">
-              <label class="control-label"><input type="checkbox" ng-model="vm.character.sensitive" ng-change="vm.changeSensitive()"> Sensible a la fuerza</label>
+          <div class="form-group col-xs-12 col-sm-4">
+            <div class="checkbox right-checkbox">
+              <label class="control-label">Sensible a la fuerza <input type="checkbox" ng-model="vm.character.sensitive" ng-change="vm.changeSensitive()"></label>
             </div>
           </div>
-          <div class="col-xs-6 col-sm-3">
-            <p>
-              <span class="bold">Puntos FUDGE: </span>
-              <span ng-bind="vm.character.FUDGEPts"></span>
-            </p>
-          </div>
-          <div class="col-xs-6 col-sm-3">
+          <div class="col-xs-6 col-sm-4">
             <p>
               <span class="bold">Puntos del lado luminoso: </span>
               <span ng-bind="vm.character.forcePts"></span>
             </p>
           </div>
-          <div class="col-xs-6 col-sm-3">
+          <div class="col-xs-6 col-sm-4">
             <p>
               <span class="bold">Puntos del lado oscuro: </span>
               <span ng-bind="vm.character.darKSidePts"></span>
@@ -110,34 +104,34 @@
           </div>
         </form>
         <div class="row">
-        <div class="col-xs-12 col-sm-6">
+          <div class="col-xs-12 col-sm-6">
             <div class="col-xs-6">
               <p>
                 <span class="bold">Factor ofensivo base: </span>
                 <span ng-bind="vm.character.attributes.foBase"></span>
               </p>
             </div>
-                <div class="col-xs-6">
-                  <p>
-                    <span class="bold">Factor defensivo base: </span>
-                    <span ng-bind="vm.character.attributes.fdBase"></span>
-                  </p>
-                </div>
+            <div class="col-xs-6">
+              <p>
+                <span class="bold">Factor defensivo base: </span>
+                <span ng-bind="vm.character.attributes.fdBase"></span>
+              </p>
+            </div>
           </div>
           <div class="col-xs-12 col-sm-6">
-              <div class="col-xs-6">
-                <p>
-                  <span class="bold">Iniciativa: </span>
-                  <span ng-bind="vm.character.attributes.ini"></span>
-                </p>
-              </div>
-                  <div class="col-xs-6">
-                    <p>
-                      <span class="bold">Movimiento: </span>
-                      <span ng-bind="vm.character.attributes.mov"></span>
-                    </p>
-                  </div>
+            <div class="col-xs-6">
+              <p>
+                <span class="bold">Iniciativa: </span>
+                <span ng-bind="vm.character.attributes.ini"></span>
+              </p>
             </div>
+            <div class="col-xs-6">
+              <p>
+                <span class="bold">Movimiento: </span>
+                <span ng-bind="vm.character.attributes.mov"></span>
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -182,6 +176,32 @@
     </div>
     <div class="panel-body" uib-collapse="chHabilitiesCollapsed">
       <div class="row">
+        <div class="col-xs-12 nowrap-labels" ng-repeat="(key, value) in vm.character.habilities" ng-if="$index < 6">
+          <p>Habilidades dependientes de <span class="force-lowercase text-warning">{{'habilities-translations.' + key + '.main' | translate}}</span></p>
+          <form class="form-horizontal">
+            <div class="row">
+              <div class="form-group col-xs-6 col-sm-4" ng-repeat="(hab, val) in value">
+                <label for="{{hab}}" class="control-label col-xs-8">{{'habilities-translations.' + key + '.' + hab | translate}}:</label>
+                <div class="col-xs-4">
+                  <input type="number" min="-4" max="4" class="form-control" id="{{hab}}" ng-model="vm.character.habilities[key][hab][0]" ng-disabled="hab === 'sableDeLuz' && !vm.character.sensitive" ng-change="vm.changeHab(vm.character)">
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="col-xs-12 nowrap-labels" ng-if="vm.character.sensitive">
+          <p>Habilidades de la <span class="force-lowercase text-warning">fuerza</span></p>
+          <form class="form-horizontal">
+            <div class="row">
+              <div class="form-group col-xs-6 col-sm-4" ng-repeat="(hab, val) in vm.character.habilities.force">
+                <label for="{{hab}}" class="control-label col-xs-8">{{'habilities-translations.force.' + hab | translate}}:</label>
+                <div class="col-xs-4">
+                  <input type="number" min="-4" max="4" class="form-control" id="{{hab}}" ng-model="vm.character.habilities.force[hab][0]" ng-change="vm.changeHab(vm.character)">
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>

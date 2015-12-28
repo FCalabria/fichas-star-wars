@@ -1,0 +1,15 @@
+.character-sheet {
+  &.edit {
+    .nowrap-labels {
+      label.control-label {
+        white-space: nowrap;
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  .checkbox.right-checkbox input[type="checkbox"] {
+    position: relative;
+    margin-left: 10px;
+    }
+  }
+}

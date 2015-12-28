@@ -16,14 +16,17 @@ angular.module('fichasStarWarsApp')
       restrict: 'E',
       controller: function($scope, swsc, $rootScope) {
         var vm = this;
+        var totalHabPts = 0;
 
         this.removeHabPts = function() {
-          this.habPts = this.habPts - 4;
-          this.desPts = this.desPts + 1;
+          totalHabPts -= 4;
+          this.habPts = calcHabPoints(this.character);
+          this.desPts += 1;
         };
         this.addHabPts = function() {
-          this.habPts = this.habPts + 4;
-          this.desPts = this.desPts - 1;
+          totalHabPts += 4;
+          this.habPts = calcHabPoints(this.character);
+          this.desPts -= 1;
         };
         this.changeSensitive = function() {
           if (this.character.sensitive) {
@@ -43,26 +46,27 @@ angular.module('fichasStarWarsApp')
             this.character.attributes.mov = swsc.calcMov(att.des[0], att.per[0]);
             this.character.healthAndFatigue = swsc.calcHaF(att.for[0], att.des[0]);
         };
-
+        this.changeHab = function(character) {
+          this.habPts = calcHabPoints(character);
+        };
         var calcDesPoints = function(character) {
           var points = 10;
           if (character.sensitive) {--points;}
-          var totalAttr = character.attributes.des[0] +
-                          character.attributes.mec[0] +
-                          character.attributes.tec[0] +
-                          character.attributes.con[0] +
-                          character.attributes.for[0] +
-                          character.attributes.per[0];
+          var totalAttr = swsc.usedAttrPoints(character.attributes);
+
           points = points - totalAttr;
           if (vm.hasOwnProperty('desPts')) {vm.desPts = points;}
           return points;
+        };
+        var calcHabPoints = function(character) {
+          return totalHabPts - swsc.usedHabPoints(character);
         };
         var saveSheet = function() {
           console.log(vm.character);
         };
 
         this.character = swsc.create($scope.ch);
-        this.habPts = 0;
+        this.habPts = calcHabPoints(this.character);
         this.desPts = calcDesPoints(this.character);
 
         $rootScope.$on('save', function() {
