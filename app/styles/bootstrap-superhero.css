@@ -2600,6 +2600,9 @@ fieldset[disabled] .form-control {
 fieldset[disabled] .form-control {
   cursor: not-allowed;
 }
+input.form-control {
+  padding: 5px;
+}
 textarea.form-control {
   height: auto;
 }

@@ -12,15 +12,14 @@ angular.module('fichasStarWarsApp')
       templateUrl: 'scripts/directives/swsfooter.tpl.html',
       restrict: 'E',
       scope: {},
-      controller: function($location, $anchorScroll) {
-        this.editMode = false;
-
+      controller: function($location, $anchorScroll, $rootScope) {
+        this.editMode = $location.url() === '/create';
         this.edit = function() {
-          console.log('edit');
           this.editMode = true;
         };
         this.save = function() {
           this.resetForm();
+          $rootScope.$emit('save');
         };
         this.cancel = function() {
           this.resetForm();

@@ -9,5 +9,5 @@
  */
 angular.module('fichasStarWarsApp')
   .controller('CreateCtrl', function () {
-
+    this.prevCharacter = {};
   });

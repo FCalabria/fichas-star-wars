@@ -18,7 +18,8 @@ angular
     'ngTouch',
     'ui.bootstrap',
     'angular-repeat-n',
-    'pascalprecht.translate'
+    'pascalprecht.translate',
+    'starWarsCharacter'
   ])
   .constant('_', window._)
   .config(function ($routeProvider) {
