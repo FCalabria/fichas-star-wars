@@ -7,18 +7,18 @@
  * # dataManager
  * Factory in the fichasStarWarsApp.
  */
-angular.module('fichasStarWarsApp')
-  .factory('dataManager', function ($http) {
+app.factory('dataManager', function ($http) {
     var http = $http;
+    var urlBase = '/api/sheets';
 
     // Public API here
     return {
-      getSheetIndex: function () {
-          return http.get('/mockFiles/sheetsIndex.json');
+      getList: function () {
+          return http.get( urlBase + '/list');
         },
       getSheet: function (sheet) {
-        sheet  = {};
-          return http.get('/mockFiles/sheet1.json');
+        sheet  = {'id' : '1'};
+          return http.get(urlBase + '/' + sheet.id);
       }
     };
   });

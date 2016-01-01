@@ -19,8 +19,10 @@
     "ejs": "^2.3.4",
     "express": "^4.13.3",
     "gulp-sass": "^2.1.1",
-    "mongojs": "^2.2.2",
+    "lodash": "^3.10.1",
     "mongoose": "^4.3.4",
-    "nodemon": "^1.8.1"
+    "node-persist": "0.0.8",
+    "nodemon": "^1.8.1",
+    "shortid": "^2.2.4"
   }
 }

@@ -18,7 +18,7 @@ angular.module('fichasStarWarsApp')
         this.sheets = [];
         $scope._ = _;
         var vm = this;
-        dataManager.getSheetIndex().then(
+        dataManager.getList().then(
           function(success) {
             vm.sheets = success.data;
             // TODO: Load the first sheet automatically;

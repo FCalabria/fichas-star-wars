@@ -8,20 +8,19 @@
  *
  * Main module of the application.
  */
-angular
-  .module('fichasStarWarsApp', [
-    'ngAnimate',
-    'ngCookies',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch',
-    'ui.bootstrap',
-    'angular-repeat-n',
-    'pascalprecht.translate',
-    'starWarsCharacter'
-  ])
-  .constant('_', window._)
+ var app = angular.module('fichasStarWarsApp', [
+   'ngAnimate',
+   'ngCookies',
+   'ngResource',
+   'ngRoute',
+   'ngSanitize',
+   'ngTouch',
+   'ui.bootstrap',
+   'angular-repeat-n',
+   'pascalprecht.translate',
+   'starWarsCharacter'
+ ]);
+  app.constant('_', window._)
   .config(function ($routeProvider) {
     //$locationProvider.html5Mode(true);
     $routeProvider
