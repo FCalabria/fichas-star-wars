@@ -58,7 +58,7 @@ angular.module('fichasStarWarsApp')
         var calcHabPoints = function(character) {
           return totalHabPts - swsc.usedHabPoints(character);
         };
-
+        console.log('loading ch');
         this.character = swsc.create($scope.ch);
         this.habPts = calcHabPoints(this.character);
         this.desPts = calcDesPoints(this.character);
