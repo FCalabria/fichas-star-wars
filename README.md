@@ -5,8 +5,6 @@ version 0.15.1.
 
 ## Build & development
 
-Run `grunt` for building and `grunt serve` for preview.
+Run `gulp` for preview.
 
-## Testing
-
-Running `grunt test` will run the unit tests with karma.
+`gulp resetDB` will clean the persist folder and set the default values (app/defaultDB)-

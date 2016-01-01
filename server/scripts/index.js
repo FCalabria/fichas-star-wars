@@ -1,32 +1,14 @@
 (function() {
 
   'use strict';
-  var express = require('express');
-  var router = express.Router();
-  var storage = require('node-persist');
-  var shortid = require('shortid');
-  var _ = require('lodash');
-
+  var express = require('express'),
+  router = express.Router(),
+  storage = require('node-persist'),
+  shortid = require('shortid'),
+  _ = require('lodash'),
+  fs = require('fs');
   storage.initSync();
-
 // TODO: Validation
-  var setInitialValues = function() {
-    var initList = [
-      {
-        "id" : "1",
-        "player" : "Paqui Calabria",
-        "name" : "Han Solo",
-        "sensitive" : false,
-      },
-      {
-        "id" : shortid.generate(),
-        "player" : "Adri",
-        "name" : "Ng'kaar",
-        "sensitive" : true,
-      }
-    ];
-    storage.setItem('sheets', initList);
-  }
 
   function getAll(){
     return new Promise(function(resolve, reject) {
@@ -40,7 +22,7 @@
         }
       });
     });
-  };
+  }
 
   function createIndex(completeArray) {
     var filteredArray = [];
@@ -49,7 +31,7 @@
       filteredArray.push(sheet);
     });
     return filteredArray;
-  };
+  }
 
   function getOne(id, array) {
     var sheet = _.findWhere(array, {'id': id});
@@ -60,14 +42,14 @@
         resolve(sheet);
       }
     });
-  };
+  }
 
   function addOne(array, sheet) {
-    return new Promise(function(resolve, reject) {
+    return new Promise(function(resolve) {
       array.push(sheet);
       resolve(sheet);
     });
-  };
+  }
 
   function updateOne(array, sheet) {
     var oldIndex =  _.findIndex(array, {'id': sheet.id});
@@ -79,7 +61,7 @@
         resolve(sheet);
       }
     });
-  };
+  }
 
   function deleteOne(array, id) {
     var toDelete =  _.findIndex(array, {'id': id});
@@ -91,7 +73,7 @@
         resolve({'id' : id});
       }
     });
-  };
+  }
 
   /* GET home page. */
   router.get('/', function(req, res) {
@@ -160,7 +142,6 @@
     });
   });
 
-  setInitialValues();
   module.exports = router;
 
 }());
