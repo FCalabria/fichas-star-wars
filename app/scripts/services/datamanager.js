@@ -9,16 +9,15 @@
  */
 app.factory('dataManager', function ($http) {
     var http = $http;
-    var urlBase = '/api/sheets';
+    var sheetsUrl = '/api/sheets';
 
     // Public API here
     return {
       getList: function () {
-          return http.get( urlBase + '/list');
+          return http.get(sheetsUrl + '/list');
         },
       getSheet: function (sheet) {
-        sheet  = {'id' : '1'};
-          return http.get(urlBase + '/' + sheet.id);
+          return http.get(sheetsUrl + '/' + sheet.id);
       }
     };
   });

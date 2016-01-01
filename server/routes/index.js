@@ -9,7 +9,7 @@
 
   storage.initSync();
 
-
+// TODO: Validation
   var setInitialValues = function() {
     var initList = [
       {
@@ -21,7 +21,8 @@
       {
         "id" : shortid.generate(),
         "player" : "Adri",
-        "name" : "Ng'kaar"
+        "name" : "Ng'kaar",
+        "sensitive" : true,
       }
     ];
     storage.setItem('sheets', initList);
