@@ -13,27 +13,37 @@ angular.module('fichasStarWarsApp')
       templateUrl: 'scripts/directives/swsnavbar.tpl.html',
       restrict: 'E',
       scope: {},
-      controller: function($location, dataManager, $routeParams, $scope, _) {
+      controller: function($location, $routeParams, $scope, $rootScope, dataManager, _) {
+        var vmNavbar = this;
         this.loadedSheet = 0;
         this.sheets = [];
         $scope._ = _;
-        var vm = this;
-        dataManager.getList().then(
-          function(success) {
-            vm.sheets = success.data;
-            // TODO: Load the first sheet automatically;
-          },
-          function(error) {
-            console.log(error);
-          }
-        );
+
         this.isLoaded = function (sheetId) {
           return sheetId === $routeParams.sheetId;
         };
         this.isActive = function (viewLocation) {
           return $scope._.startsWith($location.path(), viewLocation);
         };
+
+        this.refreshMenu = function() {
+          dataManager.getList().then(
+            function(success) {
+              vmNavbar.sheets = success.data;
+              // TODO: Load the first sheet automatically;
+            },
+            function(error) {
+              console.log(error);
+            }
+          );
+        };
+
+        $rootScope.$on('refreshMenu', function() {
+          vmNavbar.refreshMenu();
+        });
+
+        this.refreshMenu();
       },
-      controllerAs: 'vm'
+      controllerAs: 'vmNavbar'
     };
   });

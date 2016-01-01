@@ -11,27 +11,35 @@ angular.module('fichasStarWarsApp')
     return {
       templateUrl: 'scripts/directives/swsfooter.tpl.html',
       restrict: 'E',
-      scope: {},
-      controller: function($location, $anchorScroll, $rootScope) {
+      scope: {
+        saveCb : '&',
+        cancelCb : '&',
+        editCb : '&',
+        resetCb : '&'
+      },
+      controller: function($location, $anchorScroll, $scope) {
         this.editMode = $location.url() === '/create';
         this.edit = function() {
           this.editMode = true;
+          $scope.editCb();
         };
         this.save = function() {
-          this.resetForm();
-          $rootScope.$emit('save');
+          this.editMode = false;
+          $scope.saveCb();
         };
         this.cancel = function() {
-          this.resetForm();
+          this.editMode = false;
+          $scope.cancelCb();
+        };
+        this.reset = function() {
+          this.editMode = true;
+          $scope.resetCb();
         };
         this.goToTop = function() {
           // TODO: Doesnt work;
           $location.hash('top');
           console.log($anchorScroll());
           $anchorScroll();
-        };
-        this.resetForm = function() {
-          this.editMode = false;
         };
       },
       controllerAs: 'vm'

@@ -18,6 +18,13 @@ app.factory('dataManager', function ($http) {
         },
       getSheet: function (sheet) {
           return http.get(sheetsUrl + '/' + sheet.id);
+      },
+      saveSheet: function(sheet) {
+        if (sheet.id) {
+          return http.put(sheetsUrl, sheet);
+        } else {
+          return http.post(sheetsUrl, sheet);
+        }
       }
     };
   });

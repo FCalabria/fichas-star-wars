@@ -9,13 +9,10 @@
 angular.module('fichasStarWarsApp')
   .directive('swsCharacterEdit', function () {
     return {
-      scope: {
-        ch: '=character'
-      },
       templateUrl: 'scripts/directives/swscharacteredit.tpl.html',
       restrict: 'E',
       controller: function($scope, swsc, $rootScope) {
-        var vm = this;
+        var vmSheet = this;
         var totalHabPts = 0;
 
         this.removeHabPts = function() {
@@ -31,10 +28,10 @@ angular.module('fichasStarWarsApp')
         this.changeSensitive = function() {
           if (this.character.sensitive) {
             this.character.forcePts = 8;
-            this.desPts = calcDesPoints(vm.character);
+            this.desPts = calcDesPoints(vmSheet.character);
           } else {
             this.character.forcePts = 4;
-            this.desPts = calcDesPoints(vm.character);
+            this.desPts = calcDesPoints(vmSheet.character);
           }
         };
         this.changeAttr = function(character) {
@@ -55,24 +52,17 @@ angular.module('fichasStarWarsApp')
           var totalAttr = swsc.usedAttrPoints(character.attributes);
 
           points = points - totalAttr;
-          if (vm.hasOwnProperty('desPts')) {vm.desPts = points;}
+          if (vmSheet.hasOwnProperty('desPts')) {vmSheet.desPts = points;}
           return points;
         };
         var calcHabPoints = function(character) {
           return totalHabPts - swsc.usedHabPoints(character);
         };
-        var saveSheet = function() {
-          console.log(vm.character);
-        };
 
         this.character = swsc.create($scope.ch);
         this.habPts = calcHabPoints(this.character);
         this.desPts = calcDesPoints(this.character);
-
-        $rootScope.$on('save', function() {
-          saveSheet();
-        });
       },
-      controllerAs: 'vm'
+      controllerAs: 'vmSheet'
     };
   });

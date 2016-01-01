@@ -5,8 +5,8 @@
   router = express.Router(),
   storage = require('node-persist'),
   shortid = require('shortid'),
-  _ = require('lodash'),
-  fs = require('fs');
+  _ = require('lodash');
+
   storage.initSync();
 // TODO: Validation
 

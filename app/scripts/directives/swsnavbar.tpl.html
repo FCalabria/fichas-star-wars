@@ -3,14 +3,14 @@
     <!-- <span>{{vm.isActive('/create')}}</span>
     <span>{{vm.isActive('/list')}}</span> -->
     <ul class="nav nav-tabs">
-      <li role="presentation" ng-class="{'active' : vm.isActive('/create')}"><a href="#/create">Crear ficha</a></li>
-      <li role="presentation" ng-class="{'active' : vm.isActive('/list')}"><a href="#/list">Listado de fichas</a></li>
+      <li role="presentation" ng-class="{'active' : vmNavbar.isActive('/create')}"><a href="#/create">Crear ficha</a></li>
+      <li role="presentation" ng-class="{'active' : vmNavbar.isActive('/list')}"><a href="#/list">Listado de fichas</a></li>
     </ul>
 
     <ul class="nav nav-pills">
-      <li ng-show="vm.isActive('/create')" class="active"><a href="#/create">Ficha en blanco</a></li>
-      <li ng-show="vm.isActive('/create')" class="disabled"><a href="#/create">Importar</a></li>
-      <li ng-show="vm.isActive('/list')" ng-repeat="sheet in vm.sheets" ng-class="{'active' : vm.isLoaded(sheet.id)}">
+      <li ng-show="vmNavbar.isActive('/create')" class="active"><a href="#/create">Ficha en blanco</a></li>
+      <li ng-show="vmNavbar.isActive('/create')" class="disabled"><a href="#/create">Importar</a></li>
+      <li ng-show="vmNavbar.isActive('/list')" ng-repeat="sheet in vmNavbar.sheets" ng-class="{'active' : vmNavbar.isLoaded(sheet.id)}">
         <a ng-href="#/list/{{sheet.id}}"><span ng-bind="sheet.player"></span> - <span ng-bind="sheet.name"></span></a>
       </li>
     </ul>
