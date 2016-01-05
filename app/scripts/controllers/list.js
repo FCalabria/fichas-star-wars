@@ -8,7 +8,7 @@
 * Controller of the fichasStarWarsApp
 */
 angular.module('fichasStarWarsApp')
-.controller('ListCtrl', function (dataManager, $routeParams, $scope, swsc) {
+.controller('ListCtrl', function (dataManager, $routeParams, $scope, $rootScope, $location, swsc) {
   var vm = this;
   $scope.ch = {};
   this.editMode = false;
@@ -41,4 +41,13 @@ angular.module('fichasStarWarsApp')
   this.resetSheet = function() {
     $scope.vmSheet.character = angular.copy(swsc.create($scope.ch));
   };
+
+  this.deleteSheet = function() {
+    dataManager.deleteSheet($routeParams.sheetId).then(function(succ) {
+      $rootScope.$emit('refreshMenu');
+      $location.path('/create');
+    }, function(error) {
+      console.log(error);
+    });
+  }
 });

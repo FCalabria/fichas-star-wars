@@ -4,6 +4,7 @@
     <button type="button" class="btn btn-primary" ng-show="vm.editMode" ng-click="vm.save()">Guardar</button>
     <button type="button" class="btn btn-default" ng-show="vm.editMode" ng-click="vm.cancel()">Cancelar</button>
     <button type="button" class="btn btn-default" ng-show="vm.editMode" ng-click="vm.reset()">Resetear</button>
+    <button type="button" class="btn btn-default" ng-show="!vm.editMode" ng-click="vm.delete()">Borrar ficha</button>
     <button type="button" class="btn btn-default disabled" ng-click="vm.goToTop()">Ir arriba</button>
   </div>
 </footer>

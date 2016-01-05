@@ -25,6 +25,9 @@ app.factory('dataManager', function ($http) {
         } else {
           return http.post(sheetsUrl, sheet);
         }
+      },
+      deleteSheet: function(sheetId) {
+        return http.delete(sheetsUrl + '/' + sheetId);
       }
     };
   });

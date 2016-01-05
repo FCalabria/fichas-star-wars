@@ -15,7 +15,8 @@ angular.module('fichasStarWarsApp')
         saveCb : '&',
         cancelCb : '&',
         editCb : '&',
-        resetCb : '&'
+        resetCb : '&',
+        deleteCb : '&'
       },
       controller: function($location, $anchorScroll, $scope) {
         this.editMode = $location.url() === '/create';
@@ -35,6 +36,9 @@ angular.module('fichasStarWarsApp')
           this.editMode = true;
           $scope.resetCb();
         };
+        this.delete = function() {
+          $scope.deleteCb();
+        }
         this.goToTop = function() {
           // TODO: Doesnt work;
           $location.hash('top');
