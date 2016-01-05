@@ -5,3 +5,14 @@
   </div>
   <sws-footer class="container-fluid" edit-cb="vm.editSheet()" save-cb="vm.saveSheet()" cancel-cb="vm.cancelSheet()" reset-cb="vm.resetSheet()" delete-cb="vm.deleteSheet()"></sws-footer>
 </div>
+<script type="text/ng-template" id="modal-confirm.html">
+<div class="modal-body">
+  <p>
+    ¿Estás seguro de que quieres borrar esta ficha?
+  </p>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary" type="button" ng-click="vm.ok()">OK</button>
+  <button class="btn btn-warning" type="button" ng-click="vm.cancel()">Cancelar</button>
+</div>
+</script>

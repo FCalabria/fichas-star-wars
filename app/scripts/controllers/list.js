@@ -8,8 +8,22 @@
 * Controller of the fichasStarWarsApp
 */
 angular.module('fichasStarWarsApp')
-.controller('ListCtrl', function (dataManager, $routeParams, $scope, $rootScope, $location, swsc) {
+.controller('ListCtrl', function (
+  dataManager,
+  $routeParams,
+  $scope,
+  $rootScope,
+  $location,
+  $uibModal,
+  swsc
+) {
   var vm = this;
+  var modalParams = {
+    keyboard: false,
+    size: 'xs',
+    templateUrl: 'modal-confirm.html',
+    controller: 'ConfirmModalCtrl as vm'
+  };
   $scope.ch = {};
   this.editMode = false;
   if($routeParams.sheetId) {
@@ -43,11 +57,21 @@ angular.module('fichasStarWarsApp')
   };
 
   this.deleteSheet = function() {
+    $uibModal.open(modalParams).result.then(
+      function() {
+        vm.confirmDelete();
+      }
+    );
+  };
+
+  this.confirmDelete = function() {
     dataManager.deleteSheet($routeParams.sheetId).then(function(succ) {
       $rootScope.$emit('refreshMenu');
       $location.path('/create');
     }, function(error) {
       console.log(error);
     });
-  }
+  };
+
+
 });
