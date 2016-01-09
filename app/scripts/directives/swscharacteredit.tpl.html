@@ -147,20 +147,20 @@
           <table class="table stripped-table">
             <tr>
               <th>Rastreo</th>
-              <td ng-repeat="cell in ch.healthAndFatigue" class="text-center">
+              <td ng-repeat="cell in vmSheet.character.healthAndFatigue" class="text-center">
                 <span ng-bind="cell.trackingFrom"></span>
                 <span ng-if="cell.trackingTo"> - {{cell.trackingTo}}</span>
               </td>
             </tr>
             <tr>
               <th>Heridas</th>
-              <td ng-repeat="cell in ch.healthAndFatigue" class="text-center">
+              <td ng-repeat="cell in vmSheet.character.healthAndFatigue" class="text-center">
                 <span ng-repeat-n="cell.points">O</span>
               </td>
             </tr>
             <tr>
               <th>Fatiga</th>
-              <td ng-repeat="cell in ch.healthAndFatigue" class="text-center">
+              <td ng-repeat="cell in vmSheet.character.healthAndFatigue" class="text-center">
                 <span ng-repeat-n="cell.points">O</span>
               </td>
             </tr>
@@ -206,23 +206,131 @@
     </div>
   </div>
 
-  <div class="panel panel-info">
+  <div class="panel panel-info" id="ch-others">
     <div class="panel-heading" ng-click="chOthersCollapsed = !chOthersCollapsed">
       <h3 class="panel-title">Otros<span class="pull-right glyphicon glyphicon" ng-class="chOthersCollapsed ? 'glyphicon-chevron-down' : 'glyphicon-chevron-up'"></span></h3>
     </div>
     <div class="panel-body" uib-collapse="chOthersCollapsed">
       <div class="row">
+        <div class="col-xs-12">
+          <p class="bold">
+            Dones
+          </p>
+          <table class="table">
+            <tr>
+              <th>Nombre</th>
+              <th>Descripción</th>
+              <th>Afecta a...</th>
+              <th>En...puntos</th>
+              <th>Coste</th>
+              <th><button type="button" name="button" class="btn btn-success" ng-click="vmSheet.addSpecial('gifts')">Añadir</button></th>
+            </tr>
+            <tr ng-repeat="gift in vmSheet.character.gifts">
+              <td>
+                <input type="text" class="form-control" ng-model="gift.name">
+              </td>
+              <td>
+                <input type="text" class="form-control" ng-model="gift.description">
+              </td>
+              <td>
+                <input type="text" class="form-control" ng-model="gift.effect[0]" ng-change="vmSheet.changeSpecial(vmSheet.character)">
+              </td>
+              <td>
+                <input type="number" min="-4" max="4" class="form-control" ng-model="gift.effect[1]" ng-change="vmSheet.changeSpecial(vmSheet.character)">
+              </td>
+              <td>
+                <input type="number" min="-2" max="2" class="form-control" ng-model="gift.cost" ng-change="vmSheet.changeSpecial(vmSheet.character)">
+              </td>
+              <td>
+                <button type="button" name="button" class="btn btn-danger" ng-click="vmSheet.deleteSpecial('gifts', gift)">Eliminar</button>
+              </td>
+            </tr>
+          </table>
+        </form>
       </div>
+      <div class="col-xs-12">
+        <p class="bold">
+          Defectos
+        </p>
+        <table class="table">
+          <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Afecta a...</th>
+            <th>En...puntos</th>
+            <th>Coste</th>
+            <th><button type="button" name="button" class="btn btn-success" ng-click="vmSheet.addSpecial('defaults')">Añadir</button></th>
+          </tr>
+          <tr ng-repeat="default in vmSheet.character.defaults">
+            <td>
+              <input type="text" class="form-control" ng-model="default.name">
+            </td>
+            <td>
+              <input type="text" class="form-control" ng-model="default.description">
+            </td>
+            <td>
+              <input type="text" class="form-control" ng-model="default.effect[0]" ng-change="vmSheet.changeSpecial(vmSheet.character)">
+            </td>
+            <td>
+              <input type="number" min="-4" max="4" class="form-control" ng-model="default.effect[1]" ng-change="vmSheet.changeSpecial(vmSheet.character)">
+            </td>
+            <td>
+              <input type="number" min="-2" max="2" class="form-control" ng-model="default.cost" ng-change="vmSheet.changeSpecial(vmSheet.character)">
+            </td>
+            <td>
+              <button type="button" name="button" class="btn btn-danger" ng-click="vmSheet.deleteSpecial('defaults', default)">Eliminar</button>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+    <div class="col-xs-12">
+      <p class="bold">
+        Características raciales
+      </p>
+      <table class="table">
+        <tr>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Afecta a...</th>
+          <th>En...puntos</th>
+          <th>Coste</th>
+          <th><button type="button" name="button" class="btn btn-success" ng-click="vmSheet.addSpecial('raceChars')">Añadir</button></th>
+        </tr>
+        <tr ng-repeat="raceChar in vmSheet.character.raceChars">
+          <td>
+            <input type="text" class="form-control" ng-model="raceChar.name">
+          </td>
+          <td>
+            <input type="text" class="form-control" ng-model="raceChar.description">
+          </td>
+          <td>
+            <input type="text" class="form-control" ng-model="raceChar.effect[0]" ng-change="vmSheet.changeSpecial(vmSheet.character)">
+          </td>
+          <td>
+            <input type="number" min="-4" max="4" class="form-control" ng-model="raceChar.effect[1]" ng-change="vmSheet.changeSpecial(vmSheet.character)">
+          </td>
+          <td>
+            <input type="number" min="-2" max="2" class="form-control" ng-model="raceChar.cost" ng-change="vmSheet.changeSpecial(vmSheet.character)">
+          </td>
+          <td>
+            <button type="button" name="button" class="btn btn-danger" ng-click="vmSheet.deleteSpecial('raceChars', raceChar)">Eliminar</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
     </div>
   </div>
+</div>
 
-  <div class="panel panel-info">
-    <div class="panel-heading" ng-click="chEquipmentCollapsed = !chEquipmentCollapsed">
-      <h3 class="panel-title">Equipo<span class="pull-right glyphicon glyphicon" ng-class="chEquipmentCollapsed ? 'glyphicon-chevron-down' : 'glyphicon-chevron-up'"></span></h3>
-    </div>
-    <div class="panel-body" uib-collapse="chEquipmentCollapsed">
-      <div class="row">
-      </div>
+<div class="panel panel-info">
+  <div class="panel-heading" ng-click="chEquipmentCollapsed = !chEquipmentCollapsed">
+    <h3 class="panel-title">Equipo<span class="pull-right glyphicon glyphicon" ng-class="chEquipmentCollapsed ? 'glyphicon-chevron-down' : 'glyphicon-chevron-up'"></span></h3>
+  </div>
+  <div class="panel-body" uib-collapse="chEquipmentCollapsed">
+    <div class="row">
     </div>
   </div>
+</div>
 </div>

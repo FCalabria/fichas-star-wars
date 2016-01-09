@@ -117,19 +117,22 @@
       {
         "name" : "Afortunado",
         "description" : "Repetir tiradas",
-        "effect" : []
+        "effect" : [],
+        "cost" : 1
       },
       {
         "name" : "Buena vista",
         "description" : "Bonus +2 a percepción cuando proceda",
-        "effect" : ["attributes.per", 2]
+        "effect" : ["attributes.per", 2],
+        "cost" : 1
       }
     ],
     "defaults": [
       {
         "name" : "Mal temperamento",
         "description" : "Interpretativo",
-        "effect" : []
+        "effect" : [],
+        "cost" : -1
       }
     ],
     "weapons" : [

@@ -11,7 +11,7 @@ angular.module('fichasStarWarsApp')
     return {
       templateUrl: 'scripts/directives/swscharacteredit.tpl.html',
       restrict: 'E',
-      controller: function($scope, swsc, $rootScope) {
+      controller: function($scope, swsc, swsp, $rootScope) {
         var vmSheet = this;
         var totalHabPts = 0;
 
@@ -46,17 +46,39 @@ angular.module('fichasStarWarsApp')
         this.changeHab = function(character) {
           this.habPts = calcHabPoints(character);
         };
+        this.addSpecial = function(field) {
+          this.character[field].push({
+            name : '',
+            description : '',
+            effect : ['', 0],
+            cost : 0
+          });
+        };
+        this.deleteSpecial = function(field, data) {
+          var array = this.character[field];
+          var i = _.findIndex(array, function(toCompare) {
+            return _.isEqual(toCompare, data);
+          });
+          this.character = swsp.assignSpecialPoints(character);
+          array.splice(i, 1);
+        };
+        this.changeSpecial = function(character) {
+          this.desPts = calcDesPoints(character);
+          this.character = swsp.assignSpecialPoints(character);
+          console.log(this.character);
+        };
         var calcDesPoints = function(character) {
           var points = 10;
           if (character.sensitive) {--points;}
-          var totalAttr = swsc.usedAttrPoints(character.attributes);
+          var totalAttr = swsp.usedAttrPoints(character.attributes);
+          var totalSpecial = swsp.usedSpecialPoints(character.raceChar, character.gifts, character.defaults);
 
-          points = points - totalAttr;
+          points = points - totalAttr - totalSpecial;
           if (vmSheet.hasOwnProperty('desPts')) {vmSheet.desPts = points;}
           return points;
         };
         var calcHabPoints = function(character) {
-          return totalHabPts - swsc.usedHabPoints(character);
+          return totalHabPts - swsp.usedHabPoints(character);
         };
         console.log('loading ch');
         this.character = swsc.create($scope.ch);

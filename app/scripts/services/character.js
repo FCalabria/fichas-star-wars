@@ -9,6 +9,11 @@
  */
 angular.module('starWarsCharacter', [])
   .factory('swsc', function () {
+    var defaultChar = {
+      raceChar : [],
+      gifts : [],
+      defaults : []
+    };
     //First dest, then perc
     var initMap = {
       '-2' : {'-2' : -2, '-1' : -1, '0' : -1, '1' : 0, '2' : 0, '3' : 1, '4' : 1},
@@ -65,45 +70,49 @@ angular.module('starWarsCharacter', [])
       return HaFArray;
     };
 
+    var emptyChar = {
+      player: '',
+      name: '',
+      imgUrl:'',
+      race: '',
+      age: 0,
+      height: 0,
+      weight: 0,
+      scale: 0,
+      sensitive: false,
+      FUDGEPts: 5,
+      forcePts: 4,
+      darKSidePts: 0,
+      description: '',
+      attributes: {
+        des: [0],
+        con: [0],
+        mec: [0],
+        per: [0],
+        for: [0],
+        tec: [0]
+      },
+      habilities: {
+        des: {},
+        con: {},
+        mec: {},
+        per: {},
+        for: {},
+        tec: {},
+        force: {}
+      }
+    }
+
     return {
       create: function(charact) {
-        charact.player = charact.player || '';
-        charact.name = charact.name || '';
-        charact.imgUrl = charact.imgUrl || '';
-        charact.race = charact.race || '';
-        charact.age = charact.age || 0;
-        charact.height = charact.height || 0;
-        charact.weight = charact.weight || 0;
-        charact.scale = charact.scale || 0;
-        charact.sensitive = charact.sensitive || false;
         if(charact.sensitive && !charact.hasOwnProperty('forcePts')) {charact.forcePts = 8;}
-        charact.FUDGEPts = charact.FUDGEPts || 5;
-        charact.forcePts = charact.forcePts || 4;
-        charact.darKSidePts = charact.darKSidePts || 0;
-        charact.description = charact.description || '';
+        charact = _.merge(emptyChar, charact);
 
-        charact.attributes = charact.attributes || {};
-        charact.attributes.des = charact.attributes.des || [0];
-        charact.attributes.con = charact.attributes.con || [0];
-        charact.attributes.mec = charact.attributes.mec || [0];
-        charact.attributes.per = charact.attributes.per || [0];
-        charact.attributes.for = charact.attributes.for || [0];
-        charact.attributes.tec = charact.attributes.tec || [0];
         charact.attributes.foBase = this.calcFO(charact.attributes.for[0], charact.scale);
         charact.attributes.fdBase = this.calcFD(charact.attributes.for[0], charact.scale);
         charact.attributes.ini = this.calcIni(charact.attributes.des[0], charact.attributes.per[0]);
         charact.attributes.mov = this.calcMov(charact.attributes.des[0], charact.attributes.per[0]);
-
         charact.healthAndFatigue = charact.healthAndFatigue || this.calcHaF(charact.attributes.for[0], charact.attributes.des[0]);
-
-        charact.habilities = charact.habilities || {};
-        charact.habilities.des = charact.habilities.des || {};
-        charact.habilities.con = charact.habilities.con || {};
-        charact.habilities.mec = charact.habilities.mec || {};
-        charact.habilities.per = charact.habilities.per || {};
-        charact.habilities.for = charact.habilities.for || {};
-        charact.habilities.tec = charact.habilities.tec || {};
-        charact.habilities.force = charact.habilities.force || {};
 
         var desDefault = charact.attributes.des - 2;
         charact.habilities.des.acrobacias = charact.habilities.des.acrobacias || [desDefault];
@@ -201,27 +210,6 @@ angular.module('starWarsCharacter', [])
         HaF = getHaFRange(HaF, des);
         HaF = getHaFPoints(HaF, fort);
         return HaF;
-      },
-      usedAttrPoints : function(attributes) {
-        return attributes.des[0] + attributes.mec[0] + attributes.tec[0] + attributes.con[0] + attributes.for[0] + attributes.per[0];
-      },
-      usedHabPoints : function(character) {
-        var attrs = character.attributes;
-        var habs = character.habilities;
-        var usedPoints = 0;
-        angular.forEach(habs, function(value, key) {
-          var initValue;
-          if (attrs.hasOwnProperty(key)) {
-            initValue = attrs[key][0] - 2;
-          } else {
-            initValue = -2;
-          }
-          angular.forEach(habs[key], function(value) {
-            usedPoints += value - initValue;
-          });
-        });
-
-        return usedPoints;
       }
 
     };

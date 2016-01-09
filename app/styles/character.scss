@@ -11,5 +11,12 @@
     position: relative;
     margin-left: 10px;
     }
+    #ch-others {
+      th, td {
+        .btn {
+          width: 90px;
+        }
+      }
+    }
   }
 }
