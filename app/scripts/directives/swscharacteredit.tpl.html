@@ -330,6 +330,58 @@
   </div>
   <div class="panel-body" uib-collapse="chEquipmentCollapsed">
     <div class="row">
+      <div class="col-xs-12">
+        <p class="bold">
+          Armaduras
+        </p>
+        <table class="table">
+          <tr>
+            <th>Nombre</th>
+            <th>FD</th>
+            <th>Notas/descripción</th>
+            <th><button type="button" name="button" class="btn btn-success" ng-click="vmSheet.addArmour()">Añadir</button></th>
+          </tr>
+          <tr ng-repeat="item in vmSheet.character.armour">
+            <td>
+              <input type="text" class="form-control" ng-model="item.name">
+            </td>
+            <td>
+              <input type="number" class="form-control" ng-model="item.fd">
+            </td>
+            <td>
+              <input type="text" class="form-control" ng-model="item.notes">
+            </td>
+            <td>
+              <button type="button" name="button" class="btn btn-danger" ng-click="vmSheet.deleteArmour(item)">Eliminar</button>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+      <div class="col-xs-12">
+        <p class="bold">
+          Otros
+        </p>
+        <table class="table">
+          <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th><button type="button" name="button" class="btn btn-success" ng-click="vmSheet.addEquipment()">Añadir</button></th>
+          </tr>
+          <tr ng-repeat="item in vmSheet.character.equipment">
+            <td>
+              <input type="text" class="form-control" ng-model="item.name">
+            </td>
+            <td>
+              <input type="text" class="form-control" ng-model="item.description">
+            </td>
+            <td>
+              <button type="button" name="button" class="btn btn-danger" ng-click="vmSheet.deleteEquipment(item)">Eliminar</button>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
     </div>
   </div>
 </div>

@@ -59,13 +59,35 @@ angular.module('fichasStarWarsApp')
           var i = _.findIndex(array, function(toCompare) {
             return _.isEqual(toCompare, data);
           });
-          this.character = swsp.assignSpecialPoints(character);
-          array.splice(i, 1);
+          if (i !== -1) {
+            array.splice(i, 1);
+            this.character = swsp.assignSpecialPoints(this.character);
+          }
         };
         this.changeSpecial = function(character) {
           this.desPts = calcDesPoints(character);
           this.character = swsp.assignSpecialPoints(character);
-          console.log(this.character);
+        };
+        this.addEquipment = function() {
+          this.character.equipment.push({
+            name : '',
+            description : ''
+          });
+        };
+        this.deleteEquipment = function(toDelete) {
+          var i = _.findIndex(this.character.equipment, toDelete);
+          if (i !== -1) this.character.equipment.splice(i, 1);
+        };
+        this.addArmour = function() {
+          this.character.armour.push({
+            name : '',
+            notes : '',
+            fd: 0
+          });
+        };
+        this.deleteArmour = function(toDelete) {
+          var i = _.findIndex(this.character.armour, toDelete);
+          if (i !== -1) this.character.armour.splice(i, 1);
         };
         var calcDesPoints = function(character) {
           var points = 10;

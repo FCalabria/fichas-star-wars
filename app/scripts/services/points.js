@@ -61,6 +61,13 @@ angular.module('starWarsCharacter')
         }
       }
 
+      //clean special values and reassign them
+      _.forEach(character.attributes, function(attr) {
+        if (_.isArray(attr) && attr.length > 1) attr.splice(1, 1);
+      });
+      _.forEach(character.habilities, function(hab) {
+        if (_.isArray(hab) && hab.length > 1) hab.splice(1, 1);
+      });
       _.forEach(joined, function(value, key) {
         if (_.has(character, key)) {_.set(character, key+'[1]', value)};
       });
