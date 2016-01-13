@@ -46,6 +46,13 @@ angular.module('fichasStarWarsApp')
           $anchorScroll();
         };
       },
-      controllerAs: 'vm'
+      controllerAs: 'vm',
+      link: function(scope, element, attrs, controller) {
+        if (attrs.cancelCb) scope.cancelShow = true;
+        if (attrs.editCb) scope.editShow = true;
+        if (attrs.saveCb) scope.saveShow = true;
+        if (attrs.resetCb) scope.resetShow = true;
+        if (attrs.deleteCb) scope.deleteShow = true;
+      }
     };
   });
