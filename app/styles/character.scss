@@ -11,10 +11,14 @@
     position: relative;
     margin-left: 10px;
     }
-    #ch-others {
+    #ch-others, #ch-equipment {
       th, td {
         .btn {
           width: 90px;
+          float: right;
+        }
+        &:last-child {
+          width: 100px;
         }
       }
     }

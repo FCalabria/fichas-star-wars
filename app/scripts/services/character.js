@@ -100,8 +100,14 @@ angular.module('starWarsCharacter', [])
         for: {},
         tec: {},
         force: {}
-      }
-    }
+      },
+      raceChar: [],
+      gifts: [],
+      defaults: [],
+      weapons: [],
+      armour: [],
+      equipment: []
+    };
 
     return {
       create: function(charact) {
@@ -190,6 +196,7 @@ angular.module('starWarsCharacter', [])
         charact.habilities.force.controlar = charact.habilities.force.controlar || [forceDefault];
         charact.habilities.force.sentir = charact.habilities.force.sentir || [forceDefault];
         charact.habilities.force.alterar = charact.habilities.force.alterar || [forceDefault];
+        console.log(charact);
 
         return charact;
       },

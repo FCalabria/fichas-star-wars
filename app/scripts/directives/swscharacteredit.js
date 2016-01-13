@@ -68,15 +68,13 @@ angular.module('fichasStarWarsApp')
           this.desPts = calcDesPoints(character);
           this.character = swsp.assignSpecialPoints(character);
         };
-        this.addEquipment = function() {
-          this.character.equipment.push({
-            name : '',
-            description : ''
+        this.addWeapon = function() {
+          this.character.weapons.push({
+            name: '',
+            fo: 0,
+            range: [0, 0, 0, 0],
+            notes: ''
           });
-        };
-        this.deleteEquipment = function(toDelete) {
-          var i = _.findIndex(this.character.equipment, toDelete);
-          if (i !== -1) this.character.equipment.splice(i, 1);
         };
         this.addArmour = function() {
           this.character.armour.push({
@@ -85,9 +83,15 @@ angular.module('fichasStarWarsApp')
             fd: 0
           });
         };
-        this.deleteArmour = function(toDelete) {
-          var i = _.findIndex(this.character.armour, toDelete);
-          if (i !== -1) this.character.armour.splice(i, 1);
+        this.addEquipment = function() {
+          this.character.equipment.push({
+            name : '',
+            description : ''
+          });
+        };
+        this.deleteEquipment = function(group, toDelete) {
+          var i = _.findIndex(this.character[group], toDelete);
+          if (i !== -1) this.character[group].splice(i, 1);
         };
         var calcDesPoints = function(character) {
           var points = 10;

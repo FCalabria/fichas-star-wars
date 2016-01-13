@@ -216,6 +216,7 @@
           <p class="bold">
             Dones
           </p>
+          <form class="form-horizontal">
           <table class="table">
             <tr>
               <th>Nombre</th>
@@ -252,6 +253,7 @@
         <p class="bold">
           Defectos
         </p>
+        <form class="form-horizontal">
         <table class="table">
           <tr>
             <th>Nombre</th>
@@ -288,6 +290,7 @@
       <p class="bold">
         Características raciales
       </p>
+      <form class="form-horizontal">
       <table class="table">
         <tr>
           <th>Nombre</th>
@@ -295,9 +298,9 @@
           <th>Afecta a...</th>
           <th>En...puntos</th>
           <th>Coste</th>
-          <th><button type="button" name="button" class="btn btn-success" ng-click="vmSheet.addSpecial('raceChars')">Añadir</button></th>
+          <th><button type="button" name="button" class="btn btn-success" ng-click="vmSheet.addSpecial('raceChar')">Añadir</button></th>
         </tr>
-        <tr ng-repeat="raceChar in vmSheet.character.raceChars">
+        <tr ng-repeat="raceChar in vmSheet.character.raceChar">
           <td>
             <input type="text" class="form-control" ng-model="raceChar.name">
           </td>
@@ -314,7 +317,7 @@
             <input type="number" min="-2" max="2" class="form-control" ng-model="raceChar.cost" ng-change="vmSheet.changeSpecial(vmSheet.character)">
           </td>
           <td>
-            <button type="button" name="button" class="btn btn-danger" ng-click="vmSheet.deleteSpecial('raceChars', raceChar)">Eliminar</button>
+            <button type="button" name="button" class="btn btn-danger" ng-click="vmSheet.deleteSpecial('raceChar', raceChar)">Eliminar</button>
           </td>
         </tr>
       </table>
@@ -324,7 +327,7 @@
   </div>
 </div>
 
-<div class="panel panel-info">
+<div class="panel panel-info" id="ch-equipment">
   <div class="panel-heading" ng-click="chEquipmentCollapsed = !chEquipmentCollapsed">
     <h3 class="panel-title">Equipo<span class="pull-right glyphicon glyphicon" ng-class="chEquipmentCollapsed ? 'glyphicon-chevron-down' : 'glyphicon-chevron-up'"></span></h3>
   </div>
@@ -332,8 +335,43 @@
     <div class="row">
       <div class="col-xs-12">
         <p class="bold">
+          Armas
+        </p>
+        <form class="form-horizontal">
+        <table class="table">
+          <tr>
+            <th>Nombre</th>
+            <th>FO</th>
+            <th colspan="4">Rango</th>
+            <th>Notas/descripción</th>
+            <th><button type="button" name="button" class="btn btn-success" ng-click="vmSheet.addWeapon()">Añadir</button></th>
+          </tr>
+          <tr ng-repeat="item in vmSheet.character.weapons">
+            <td>
+              <input type="text" class="form-control" ng-model="item.name">
+            </td>
+            <td>
+              <input type="number" class="form-control" ng-model="item.fo">
+            </td>
+            <td><input type="number" class="form-control" ng-model="item.range[0]"></td>
+            <td><input type="number" class="form-control" ng-model="item.range[1]"></td>
+            <td><input type="number" class="form-control" ng-model="item.range[2]"></td>
+            <td><input type="number" class="form-control" ng-model="item.range[3]"></td>
+            <td>
+              <input type="text" class="form-control" ng-model="item.notes">
+            </td>
+            <td>
+              <button type="button" name="button" class="btn btn-danger" ng-click="vmSheet.deleteEquipment('weapons', item)">Eliminar</button>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+      <div class="col-xs-12">
+        <p class="bold">
           Armaduras
         </p>
+        <form class="form-horizontal">
         <table class="table">
           <tr>
             <th>Nombre</th>
@@ -352,7 +390,7 @@
               <input type="text" class="form-control" ng-model="item.notes">
             </td>
             <td>
-              <button type="button" name="button" class="btn btn-danger" ng-click="vmSheet.deleteArmour(item)">Eliminar</button>
+              <button type="button" name="button" class="btn btn-danger" ng-click="vmSheet.deleteEquipment('armour', item)">Eliminar</button>
             </td>
           </tr>
         </table>
@@ -362,6 +400,7 @@
         <p class="bold">
           Otros
         </p>
+        <form class="form-horizontal">
         <table class="table">
           <tr>
             <th>Nombre</th>
@@ -376,7 +415,7 @@
               <input type="text" class="form-control" ng-model="item.description">
             </td>
             <td>
-              <button type="button" name="button" class="btn btn-danger" ng-click="vmSheet.deleteEquipment(item)">Eliminar</button>
+              <button type="button" name="button" class="btn btn-danger" ng-click="vmSheet.deleteEquipment('equipment', item)">Eliminar</button>
             </td>
           </tr>
         </table>
