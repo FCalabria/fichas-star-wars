@@ -65,7 +65,7 @@ angular.module('fichasStarWarsApp')
   };
 
   this.confirmDelete = function() {
-    dataManager.deleteSheet($routeParams.sheetId).then(function(succ) {
+    dataManager.deleteSheet($routeParams.sheetId).then(function() {
       $rootScope.$emit('refreshMenu');
       $location.path('/create');
     }, function(error) {

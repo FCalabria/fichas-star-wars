@@ -38,7 +38,7 @@ angular.module('fichasStarWarsApp')
         };
         this.delete = function() {
           $scope.deleteCb();
-        }
+        };
         this.goToTop = function() {
           // TODO: Doesnt work;
           $location.hash('top');
@@ -47,12 +47,12 @@ angular.module('fichasStarWarsApp')
         };
       },
       controllerAs: 'vm',
-      link: function(scope, element, attrs, controller) {
-        if (attrs.cancelCb) scope.cancelShow = true;
-        if (attrs.editCb) scope.editShow = true;
-        if (attrs.saveCb) scope.saveShow = true;
-        if (attrs.resetCb) scope.resetShow = true;
-        if (attrs.deleteCb) scope.deleteShow = true;
+      link: function(scope, element, attrs) {
+        if (attrs.cancelCb) { scope.cancelShow = true; }
+        if (attrs.editCb) { scope.editShow = true; }
+        if (attrs.saveCb) { scope.saveShow = true; }
+        if (attrs.resetCb) { scope.resetShow = true; }
+        if (attrs.deleteCb) { scope.deleteShow = true; }
       }
     };
   });

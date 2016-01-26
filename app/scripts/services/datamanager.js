@@ -7,7 +7,8 @@
  * # dataManager
  * Factory in the fichasStarWarsApp.
  */
-app.factory('dataManager', function ($http) {
+angular.module('starWarsCharacter')
+  .factory('dataManager', function ($http) {
     var http = $http;
     var sheetsUrl = '/api/sheets';
 

@@ -7,11 +7,11 @@
  * # characterEdit
  */
 angular.module('fichasStarWarsApp')
-  .directive('swsCharacterEdit', function () {
+  .directive('swsCharacterEdit', function (_) {
     return {
       templateUrl: 'scripts/directives/swscharacteredit.tpl.html',
       restrict: 'E',
-      controller: function($scope, swsc, swsp, $rootScope) {
+      controller: function($scope, swsc, swsp) {
         var vmSheet = this;
         var totalHabPts = 0;
 
@@ -91,7 +91,7 @@ angular.module('fichasStarWarsApp')
         };
         this.deleteEquipment = function(group, toDelete) {
           var i = _.findIndex(this.character[group], toDelete);
-          if (i !== -1) this.character[group].splice(i, 1);
+          if (i !== -1) { this.character[group].splice(i, 1); }
         };
         var calcDesPoints = function(character) {
           var points = 10;
