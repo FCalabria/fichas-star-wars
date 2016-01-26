@@ -17,6 +17,15 @@
     <div class="panel-body" uib-collapse="chGeneralCollapsed">
       <div class="row">
         <form class="form-horizontal">
+          <div class="form-group col-xs-12 col-sm-8">
+            <label for="name" class="control-label col-xs-4 col-sm-3">Imagen (url):</label>
+            <div class="col-xs-8 col-sm-9">
+              <input type="text" class="form-control" id="imgUrl" ng-model="vmSheet.character.imgUrl">
+            </div>
+          </div>
+          <div class="form-group hidden-xs col-sm-4" id="ch-image">
+            <img ng-src="{{vmSheet.character.imgUrl}}" alt="{{vmSheet.character.name}}" class="img-responsive pull-right"/>
+          </div>
           <div class="form-group col-xs-12 col-sm-6">
             <label for="player" class="control-label col-xs-4">Nombre del jugador:</label>
             <div class="col-xs-8">

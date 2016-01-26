@@ -1,5 +1,11 @@
 .character-sheet {
   &.edit {
+    .form-horizontal {
+      .form-group {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
     .nowrap-labels {
       label.control-label {
         white-space: nowrap;
@@ -10,6 +16,13 @@
   .checkbox.right-checkbox input[type="checkbox"] {
     position: relative;
     margin-left: 10px;
+    }
+    #ch-image {
+      min-height: 40px;
+      img {
+        padding: 0 15px;
+        max-height: 300px;
+      }
     }
     #ch-others, #ch-equipment {
       th, td {

@@ -9,11 +9,6 @@
  */
 angular.module('starWarsCharacter', [])
   .factory('swsc', function () {
-    var defaultChar = {
-      raceChar : [],
-      gifts : [],
-      defaults : []
-    };
     //First dest, then perc
     var initMap = {
       '-2' : {'-2' : -2, '-1' : -1, '0' : -1, '1' : 0, '2' : 0, '3' : 1, '4' : 1},
