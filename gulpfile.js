@@ -11,51 +11,42 @@
   clean = require('gulp-clean'),
   shell = require('gulp-shell'),
 
-  _paths = ['server/**/*.js', 'app/scripts/**/*.js'],
-  _csspath = 'app/styles/main.scss';
+  paths = ['server/**/*.js', 'app/scripts/**/*.js'],
+  csspath = 'app/styles/main.scss',
+  mainpath = 'server/app.js';
 
 
   //register nodemon task
   gulp.task('nodemon', function() {
     nodemon({
-      script: 'server/app.js',
+      script: mainpath,
       env: {
         'NODE_ENV': 'development'
-      }
+      },
+      tasks: ['lint', 'sass']
     })
-    .on('restart');
-  });
-
-  // Rerun the task when a file changes
-  gulp.task('watch', function() {
-    livereload.listen();
-    gulp.src(_paths, {
-      read: false
-    })
-    .pipe(watch({
-      emit: 'all'
-    }))
-    .pipe(jshint())
-    .pipe(jshint.reporter('default'));
-    watch(_paths, livereload.changed);
+    .on('restart', function() {
+      livereload.reload('app/index.html');
+    });
   });
 
   //lint js files
   gulp.task('lint', function() {
-    gulp.src(_paths)
+    gulp.src(paths, {read: false})
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
   });
 
   //sass compile
   gulp.task('sass', function () {
-    return gulp.src(_csspath)
+    return gulp.src(csspath)
     .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
     .pipe(gulp.dest('./app/styles'));
   });
 
   //Open the app
   gulp.task('open', function(){
+    livereload.listen();
     gulp.src(__filename)
     .pipe(open({
       uri: 'http://localhost:9000'
@@ -73,6 +64,6 @@
 
 
   // The default task (called when you run `gulp` from cli)
-  gulp.task('default', ['lint', 'sass', 'nodemon', 'open', 'watch']);
+  gulp.task('default', ['lint', 'sass', 'nodemon', 'open']);
 
 }());
