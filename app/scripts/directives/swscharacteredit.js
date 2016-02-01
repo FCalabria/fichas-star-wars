@@ -11,7 +11,7 @@ angular.module('fichasStarWarsApp')
     return {
       templateUrl: 'scripts/directives/swscharacteredit.tpl.html',
       restrict: 'E',
-      controller: function($scope, swsc, swsp) {
+      controller: function($scope, $http, swsc, swsp) {
         var vmSheet = this;
         var totalHabPts = 0;
 
@@ -106,10 +106,21 @@ angular.module('fichasStarWarsApp')
         var calcHabPoints = function(character) {
           return totalHabPts - swsp.usedHabPoints(character);
         };
-        console.log('loading ch');
+        var getAttrAndHab = function() {
+           $http.get('./scripts/directives/attributes-list.json').then(
+            function(attributes) {
+              $http.get('./scripts/directives/habilities-list.json').then(
+                function(habilities) { vmSheet.attributesAndHabilities = _.concat(attributes.data, habilities.data); }
+              );
+            }
+          ).catch(
+            function(error) { console.log(error.data); }
+          );
+        }
         this.character = swsc.create($scope.ch);
         this.habPts = calcHabPoints(this.character);
         this.desPts = calcDesPoints(this.character);
+        getAttrAndHab();
       },
       controllerAs: 'vmSheet'
     };

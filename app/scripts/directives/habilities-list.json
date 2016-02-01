@@ -1,0 +1,192 @@
+[
+  {
+    "key": "habilities.des.acrobacias",
+    "translation": "habilities-translations.des.acrobacias"
+  },{
+    "key": "habilities.des.arcaicas",
+    "translation": "habilities-translations.des.arcaicas"
+  },{
+    "key": "habilities.des.artesMarciales",
+    "translation": "habilities-translations.des.artesMarciales"
+  },{
+    "key": "habilities.des.blasters",
+    "translation": "habilities-translations.des.blasters"
+  },{
+    "key": "habilities.des.cuerpoACuerpo",
+    "translation": "habilities-translations.des.cuerpoACuerpo"
+  },{
+    "key": "habilities.des.delito",
+    "translation": "habilities-translations.des.delito"
+  },{
+    "key": "habilities.des.esconderse",
+    "translation": "habilities-translations.des.esconderse"
+  },{
+    "key": "habilities.des.equilibrio",
+    "translation": "habilities-translations.des.equilibrio"
+  },{
+    "key": "habilities.des.esquivar",
+    "translation": "habilities-translations.des.esquivar"
+  },{
+    "key": "habilities.des.pesadas",
+    "translation": "habilities-translations.des.pesadas"
+  },{
+    "key": "habilities.des.sableDeLuz",
+    "translation": "habilities-translations.des.sableDeLuz"
+  },{
+    "key": "habilities.des.sigilo",
+    "translation": "habilities-translations.des.sigilo"
+  },{
+    "key": "habilities.con.alienigenas",
+    "translation": "habilities-translations.con.alienigenas"
+  },{
+    "key": "habilities.con.bajosFondos",
+    "translation": "habilities-translations.con.bajosFondos"
+  },{
+    "key": "habilities.con.burocracia",
+    "translation": "habilities-translations.con.burocracia"
+  },{
+    "key": "habilities.con.ciencia",
+    "translation": "habilities-translations.con.ciencia"
+  },{
+    "key": "habilities.con.cultura",
+    "translation": "habilities-translations.con.cultura"
+  },{
+    "key": "habilities.con.lenguas",
+    "translation": "habilities-translations.con.lenguas"
+  },{
+    "key": "habilities.con.sistPlanetarios",
+    "translation": "habilities-translations.con.sistPlanetarios"
+  },{
+    "key": "habilities.con.supervivencia",
+    "translation": "habilities-translations.con.supervivencia"
+  },{
+    "key": "habilities.con.tecnologia",
+    "translation": "habilities-translations.con.tecnologia"
+  },{
+    "key": "habilities.mec.artilleria",
+    "translation": "habilities-translations.mec.artilleria"
+  },{
+    "key": "habilities.mec.astrogracion",
+    "translation": "habilities-translations.mec.astrogracion"
+  },{
+    "key": "habilities.mec.cabalgar",
+    "translation": "habilities-translations.mec.cabalgar"
+  },{
+    "key": "habilities.mec.comunicaciones",
+    "translation": "habilities-translations.mec.comunicaciones"
+  },{
+    "key": "habilities.mec.condTierra",
+    "translation": "habilities-translations.mec.condTierra"
+  },{
+    "key": "habilities.mec.escudos",
+    "translation": "habilities-translations.mec.escudos"
+  },{
+    "key": "habilities.mec.pilAndadores",
+    "translation": "habilities-translations.mec.pilAndadores"
+  },{
+    "key": "habilities.mec.pilAstronave",
+    "translation": "habilities-translations.mec.pilAstronave"
+  },{
+    "key": "habilities.mec.repulsores",
+    "translation": "habilities-translations.mec.repulsores"
+  },{
+    "key": "habilities.mec.sensores",
+    "translation": "habilities-translations.mec.sensores"
+  },{
+    "key": "habilities.per.atencion",
+    "translation": "habilities-translations.per.atencion"
+  },{
+    "key": "habilities.per.avIntenciones",
+    "translation": "habilities-translations.per.avIntenciones"
+  },{
+    "key": "habilities.per.buscar",
+    "translation": "habilities-translations.per.buscar"
+  },{
+    "key": "habilities.per.instruccion",
+    "translation": "habilities-translations.per.instruccion"
+  },{
+    "key": "habilities.per.interrogar",
+    "translation": "habilities-translations.per.interrogar"
+  },{
+    "key": "habilities.per.intimidar",
+    "translation": "habilities-translations.per.intimidar"
+  },{
+    "key": "habilities.per.jugar",
+    "translation": "habilities-translations.per.jugar"
+  },{
+    "key": "habilities.per.liderazgo",
+    "translation": "habilities-translations.per.liderazgo"
+  },{
+    "key": "habilities.per.negociar",
+    "translation": "habilities-translations.per.negociar"
+  },{
+    "key": "habilities.per.orientacion",
+    "translation": "habilities-translations.per.orientacion"
+  },{
+    "key": "habilities.per.persuadir",
+    "translation": "habilities-translations.per.persuadir"
+  },{
+    "key": "habilities.per.rastrear",
+    "translation": "habilities-translations.per.rastrear"
+  },{
+    "key": "habilities.per.reconocimiento",
+    "translation": "habilities-translations.per.reconocimiento"
+  },{
+    "key": "habilities.per.timar",
+    "translation": "habilities-translations.per.timar"
+  },{
+    "key": "habilities.for.armArrojadizas",
+    "translation": "habilities-translations.for.armArrojadizas"
+  },{
+    "key": "habilities.for.correr",
+    "translation": "habilities-translations.for.correr"
+  },{
+    "key": "habilities.for.escalar",
+    "translation": "habilities-translations.for.escalar"
+  },{
+    "key": "habilities.for.nadar",
+    "translation": "habilities-translations.for.nadar"
+  },{
+    "key": "habilities.for.pelea",
+    "translation": "habilities-translations.for.pelea"
+  },{
+    "key": "habilities.for.saltar",
+    "translation": "habilities-translations.for.saltar"
+  },{
+    "key": "habilities.for.voluntad",
+    "translation": "habilities-translations.for.voluntad"
+  },{
+    "key": "habilities.tec.demolicion",
+    "translation": "habilities-translations.tec.demolicion"
+  },{
+    "key": "habilities.tec.primAuxilios",
+    "translation": "habilities-translations.tec.primAuxilios"
+  },{
+    "key": "habilities.tec.progComputadores",
+    "translation": "habilities-translations.tec.progComputadores"
+  },{
+    "key": "habilities.tec.progDroides",
+    "translation": "habilities-translations.tec.progDroides"
+  },{
+    "key": "habilities.tec.repNaves",
+    "translation": "habilities-translations.tec.repNaves"
+  },{
+    "key": "habilities.tec.repRepulsores",
+    "translation": "habilities-translations.tec.repRepulsores"
+  },{
+    "key": "habilities.tec.repSables",
+    "translation": "habilities-translations.tec.repSables"
+  },{
+    "key": "habilities.tec.seguridad",
+    "translation": "habilities-translations.tec.seguridad"
+  },{
+    "key": "habilities.force.controlar",
+    "translation": "habilities-translations.force.controlar"
+  },{
+    "key": "habilities.force.sentir",
+    "translation": "habilities-translations.force.sentir"
+  },{
+    "key": "habilities.force.alterar",
+    "translation": "habilities-translations.force.alterar"
+  }
+]

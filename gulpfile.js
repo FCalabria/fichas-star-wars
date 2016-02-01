@@ -49,7 +49,8 @@
     livereload.listen();
     gulp.src(__filename)
     .pipe(open({
-      uri: 'http://localhost:9000'
+      uri: 'http://localhost:9000',
+      app: 'chrome'
     }));
   });
 

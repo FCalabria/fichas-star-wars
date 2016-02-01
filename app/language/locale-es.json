@@ -83,6 +83,10 @@
       "controlar" : "Controlar",
       "sentir" : "Sentir",
       "alterar" : "Alterar"
-    }
+    },
+    "foBase" : "FO Base",
+    "fdBase" : "FD Base",
+    "ini" : "Iniciativa",
+    "mov" : "Movimiento"
   }
 }

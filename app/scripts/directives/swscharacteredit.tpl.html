@@ -243,7 +243,7 @@
                 <input type="text" class="form-control" ng-model="gift.description">
               </td>
               <td>
-                <input type="text" class="form-control" ng-model="gift.effect[0]" ng-change="vmSheet.changeSpecial(vmSheet.character)">
+                <select class="form-control" ng-model="gift.effect[0]" ng-change="vmSheet.changeSpecial(vmSheet.character)" ng-options="hability.key as hability.translation | translate for hability in vmSheet.attributesAndHabilities | orderBy : 'translation | translate' "></select>
               </td>
               <td>
                 <input type="number" min="-4" max="4" class="form-control" ng-model="gift.effect[1]" ng-change="vmSheet.changeSpecial(vmSheet.character)">
@@ -280,7 +280,7 @@
               <input type="text" class="form-control" ng-model="default.description">
             </td>
             <td>
-              <input type="text" class="form-control" ng-model="default.effect[0]" ng-change="vmSheet.changeSpecial(vmSheet.character)">
+              <select class="form-control" ng-model="default.effect[0]" ng-change="vmSheet.changeSpecial(vmSheet.character)" ng-options="hability.key as hability.translation | translate for hability in vmSheet.attributesAndHabilities | orderBy : 'translation | translate' "></select>
             </td>
             <td>
               <input type="number" min="-4" max="4" class="form-control" ng-model="default.effect[1]" ng-change="vmSheet.changeSpecial(vmSheet.character)">
@@ -317,7 +317,7 @@
             <input type="text" class="form-control" ng-model="raceChar.description">
           </td>
           <td>
-            <input type="text" class="form-control" ng-model="raceChar.effect[0]" ng-change="vmSheet.changeSpecial(vmSheet.character)">
+            <select class="form-control" ng-model="raceChar.effect[0]" ng-change="vmSheet.changeSpecial(vmSheet.character)" ng-options="hability.key as hability.translation | translate for hability in vmSheet.attributesAndHabilities | orderBy : 'translation | translate' "></select>
           </td>
           <td>
             <input type="number" min="-4" max="4" class="form-control" ng-model="raceChar.effect[1]" ng-change="vmSheet.changeSpecial(vmSheet.character)">

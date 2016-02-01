@@ -10,7 +10,7 @@
     "angular-route": "^1.4.0",
     "angular-sanitize": "^1.4.0",
     "angular-touch": "^1.4.0",
-    "lodash": "~3.10.1",
+    "lodash": "~4.1.0",
     "angular-repeat-n": "~0.1.5",
     "angular-translate": "~2.8.1",
     "angular-translate-loader-static-files": "~2.8.1",

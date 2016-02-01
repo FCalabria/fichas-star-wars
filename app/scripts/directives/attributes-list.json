@@ -1,0 +1,33 @@
+[
+  {
+    "key": "attributes.des",
+    "translation": "habilities-translations.des.main"
+  },{
+    "key": "attributes.con",
+    "translation": "habilities-translations.con.main"
+  },{
+    "key": "attributes.mec",
+    "translation": "habilities-translations.mec.main"
+  },{
+    "key": "attributes.per",
+    "translation": "habilities-translations.per.main"
+  },{
+    "key": "attributes.for",
+    "translation": "habilities-translations.for.main"
+  },{
+    "key": "attributes.tec",
+    "translation": "habilities-translations.tec.main"
+  },{
+    "key": "attributes.foBase",
+    "translation": "habilities-translations.foBase"
+  },{
+    "key": "attributes.fdBase",
+    "translation": "habilities-translations.fdBase"
+  },{
+    "key": "attributes.ini",
+    "translation": "habilities-translations.ini"
+  },{
+    "key": "attributes.mov",
+    "translation": "habilities-translations.mov"
+  }
+]
