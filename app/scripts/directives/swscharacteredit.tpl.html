@@ -26,6 +26,12 @@
           <div class="form-group hidden-xs col-sm-4" id="ch-image">
             <img ng-src="{{vmSheet.character.imgUrl}}" alt="{{vmSheet.character.name}}" class="img-responsive pull-right"/>
           </div>
+          <div class="form-group col-xs-12">
+            <label for="description" class="control-label col-xs-4 col-sm-2">Descripción:</label>
+            <div class="col-xs-8 col-sm-10">
+              <textarea class="form-control" id="player" ng-model="vmSheet.character.description"></textarea>
+            </div>
+          </div>
           <div class="form-group col-xs-12 col-sm-6">
             <label for="player" class="control-label col-xs-4">Nombre del jugador:</label>
             <div class="col-xs-8">
