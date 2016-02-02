@@ -42,7 +42,14 @@ angular.module('fichasStarWarsApp')
             this.character.attributes.ini = swsc.calcIni(att.des[0], att.per[0]);
             this.character.attributes.mov = swsc.calcMov(att.des[0], att.per[0]);
             this.character.healthAndFatigue = swsc.calcHaF(att.for[0], att.des[0]);
-        };
+            this.character = swsc.calcBaseHab(this.character, 'des');
+            this.character = swsc.calcBaseHab(this.character, 'con');
+            this.character = swsc.calcBaseHab(this.character, 'mec');
+            this.character = swsc.calcBaseHab(this.character, 'per');
+            this.character = swsc.calcBaseHab(this.character, 'for');
+            this.character = swsc.calcBaseHab(this.character, 'tec');
+            this.character = swsc.calcBaseHab(this.character, 'force');
+          };
         this.changeHab = function(character) {
           this.habPts = calcHabPoints(character);
         };
@@ -98,7 +105,6 @@ angular.module('fichasStarWarsApp')
           if (character.sensitive) {--points;}
           var totalAttr = swsp.usedAttrPoints(character.attributes);
           var totalSpecial = swsp.usedSpecialPoints(character.raceChar, character.gifts, character.defaults);
-
           points = points - totalAttr - totalSpecial;
           if (vmSheet.hasOwnProperty('desPts')) {vmSheet.desPts = points;}
           return points;
