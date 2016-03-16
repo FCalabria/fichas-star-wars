@@ -1,27 +1,27 @@
 (function() {
     'use strict';
 
-    var express = require('express');
-    var path = require('path');
-    var logger = require('morgan');
-    var cookieParser = require('cookie-parser');
-    var bodyParser = require('body-parser');
+    var express = require('express'),
+    path = require('path'),
+  //  logger = require('morgan'),
+  //  cookieParser = require('cookie-parser'),
+    bodyParser = require('body-parser'),
 
-    var routes = require('./scripts/index.js');
+    routes = require('./scripts/index.js'),
 
-    var app = express();
+    app = express();
 
     // view engine setup
     app.set('views', path.join(__dirname, 'views'));
     app.engine('html', require('ejs').renderFile);
     app.set('view engine', 'html');
 
-    app.use(logger('dev'));
+  //app.use(logger('dev'));
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({
         extended: true
     }));
-    app.use(cookieParser());
+  //  app.use(cookieParser());
 
     app.use(express.static(path.join(__dirname, '../app')));
     app.use('/bower_components',  express.static( path.join(__dirname, '../bower_components')));

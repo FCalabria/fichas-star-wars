@@ -15,6 +15,7 @@
    'ngRoute',
    'ngSanitize',
    'ngTouch',
+   'ngFileUpload',
    'ui.bootstrap',
    'angular-repeat-n',
    'pascalprecht.translate',
@@ -24,9 +25,14 @@
   .config(function ($routeProvider) {
     //$locationProvider.html5Mode(true);
     $routeProvider
-      .when('/create', {
+      .when('/create/blank', {
         templateUrl: 'views/create.html',
         controller: 'CreateCtrl',
+        controllerAs: 'vm'
+      })
+      .when('/create/import', {
+        templateUrl: 'views/import.html',
+        controller: 'ImportCtrl',
         controllerAs: 'vm'
       })
       .when('/list/:sheetId?', {
@@ -35,7 +41,7 @@
         controllerAs: 'vm'
       })
       .otherwise({
-        redirectTo: '/create'
+        redirectTo: '/create/blank'
       });
   })
   .config(function($translateProvider) {

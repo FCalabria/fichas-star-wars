@@ -29,6 +29,9 @@ angular.module('fichasStarWarsApp')
       },
       deleteSheet: function(sheetId) {
         return http.delete(sheetsUrl + '/' + sheetId);
+      },
+      importSheet: function(file) {
+        return http.post(sheetsUrl + '/import', file);
       }
     };
   });

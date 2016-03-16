@@ -2,32 +2,25 @@
   "name": "fichasstarwars",
   "private": true,
   "devDependencies": {
-    "autoprefixer-core": "^5.2.1",
     "gulp-jshint": "^2.0.0",
     "gulp-livereload": "^3.8.1",
     "gulp-nodemon": "^2.0.6",
-    "gulp-watch": "^4.3.5",
     "jshint": "^2.8.0",
-    "jshint-stylish": "^1.0.0",
-    "phantomjs": "^1.9.19"
+    "jshint-stylish": "^1.0.0"
   },
   "engines": {
     "node": ">=0.10.0"
   },
   "dependencies": {
     "body-parser": "^1.14.2",
-    "cookie-parser": "^1.4.0",
     "ejs": "^2.3.4",
     "express": "^4.13.3",
     "gulp-clean": "^0.3.1",
-    "gulp-copy": "0.0.2",
     "gulp-open": "^1.0.0",
     "gulp-sass": "^2.1.1",
     "gulp-shell": "^0.5.1",
     "lodash": "^3.10.1",
-    "morgan": "^1.6.1",
     "node-persist": "0.0.8",
-    "nodemon": "^1.8.1",
     "shortid": "^2.2.4"
   }
 }

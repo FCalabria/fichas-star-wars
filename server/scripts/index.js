@@ -10,13 +10,27 @@
   storage.initSync();
 // TODO: Validation
 
-  function getAll(){
+  function getAll() {
     return new Promise(function(resolve, reject) {
       storage.getItem('sheets', function(error, value) {
         if (error) {
           reject(error);
         } else if (value === undefined) {
           reject('No list of characters');
+        } else {
+          resolve(value);
+        }
+      });
+    });
+  }
+
+  function saveAll(array) {
+    return new Promise(function(resolve, reject) {
+      storage.setItem('sheets', array, function(error, value) {
+        if (error) {
+          reject(error);
+        } else if (value === undefined) {
+          reject('Error setting full list of characters');
         } else {
           resolve(value);
         }
@@ -45,9 +59,9 @@
   }
 
   function addOne(array, sheet) {
-    return new Promise(function(resolve) {
-      array.push(sheet);
-      resolve(sheet);
+    array.push(sheet);
+    return saveAll(array).then(function(resolve) {
+      return sheet;
     });
   }
 
@@ -72,6 +86,27 @@
         array = array.splice(toDelete, 1);
         resolve({'id' : id});
       }
+    });
+  }
+
+  function createCharacter(sheet, res) {
+    sheet.id = shortid.generate();
+    getAll().then(function(result) {
+      return addOne(result, sheet);
+    }).then(function(resolve) {
+      res.json(resolve);
+    }, function(reject) {
+      res.status(400).send(reject);
+    });
+  }
+
+  function updateCharacter(sheet, res) {
+    getAll().then(function(result) {
+      return updateOne(result, sheet);
+    }).then(function(resolve) {
+      res.json(resolve);
+    }, function(reject) {
+      res.status(400).send(reject);
     });
   }
 
@@ -103,25 +138,22 @@
 
   router.post('/api/sheets', function(req, res) {
     var sheet = req.body;
-    sheet.id = shortid.generate();
-    getAll().then(function(result) {
-      return addOne(result, sheet);
-    }).then(function(resolve) {
-      res.json(resolve);
-    }, function(reject) {
-      res.status(400).send(reject);
-    });
+    createCharacter(sheet, res);
+  });
+
+  router.post('/api/sheets/import', function(req, res) {
+    var sheet = {};
+    req.body instanceof Array ? sheet = req.body[0] : sheet = req.body;
+    if (!sheet.id) {
+      createCharacter(sheet, res);
+    } else {
+      updateCharacter(sheet, res);
+    }
   });
 
   router.put('/api/sheets', function(req, res) {
     var sheet = req.body;
-    getAll().then(function(result) {
-      return updateOne(result, sheet);
-    }).then(function(resolve) {
-      res.json(resolve);
-    }, function(reject) {
-      res.status(400).send(reject);
-    });
+    updateCharacter(sheet, res);
   });
 
   router.delete('/api/sheets/:id', function(req, res) {

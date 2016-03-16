@@ -26,6 +26,11 @@ angular.module('fichasStarWarsApp')
           return $scope._.startsWith($location.path(), viewLocation);
         };
 
+        this.isActivecheck = function (viewLocation) {
+          console.log('is active?', viewLocation, $scope._.startsWith($location.path(), viewLocation));
+          return $scope._.startsWith($location.path(), viewLocation);
+        };
+
         this.refreshMenu = function() {
           dataManager.getList().then(
             function(success) {
