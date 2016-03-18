@@ -1,10 +1,11 @@
 <div class="row">
   <div class="sws-main-container">
     <div class="col-xs-12">
-    <p>
-      Importar ficha en JSON
-    </p>
-    <button type="file" ngf-select="vm.uploadFile($file, $invalidFiles)" accept=".json" >Seleccionar</button>
+      <p>
+        Importar ficha en JSON
+      </p>
+      <div ngf-select="vm.uploadFile($file, $invalidFiles)" ngf-drop="vm.uploadFile($file, $invalidFiles)" accept=".json" class="jumbotron" ngf-drag-over-class="'jumbotron-primary-border'">Haz click o arrastra un archivo aquí</dib>
+      <div ngf-no-file-drop>Drag and drop no soportado por el navegador</div>
     </div>
   </div>
 </div>

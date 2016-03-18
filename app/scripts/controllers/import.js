@@ -11,7 +11,8 @@ angular.module('fichasStarWarsApp')
 .controller('ImportCtrl', function (
   dataManager,
   $location,
-  $rootScope
+  $rootScope,
+  $scope
 ) {
   this.uploadFile = function(file, errFiles) {
     if (file) {
@@ -20,5 +21,5 @@ angular.module('fichasStarWarsApp')
         $location.path('/list/' + response.data.id);
       });
     }
-  };
+  }
 });
