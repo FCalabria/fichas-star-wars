@@ -34,7 +34,15 @@ angular.module('fichasStarWarsApp')
         return http.post(sheetsUrl + '/import', file);
       },
       exportSheet: function(sheetId) {
-        return http.get(sheetsUrl + '/export/' + sheetId);
+        return http.get(sheetsUrl + '/export/' + sheetId).success(function(data, status, headers, config) {
+          var anchor = angular.element('<a/>');
+          var fileName = headers('Content-Disposition').replace('attachment; filename=', '').replace(/\"/g,'');
+          anchor.attr({
+            href: 'data:application/json,' + JSON.stringify(data),
+            target: '_blank',
+            download: fileName
+          })[0].click();
+        });
       }
     };
   });

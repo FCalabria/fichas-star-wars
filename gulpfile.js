@@ -24,6 +24,7 @@
       env: {
         'NODE_ENV': 'development'
       },
+      ignore: ['persist/*.*'],
       tasks: ['lint', 'sass']
     })
     .on('restart', function() {

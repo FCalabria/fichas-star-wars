@@ -53,7 +53,7 @@ angular.module('fichasStarWarsApp')
   };
 
   this.exportSheet = function() {
-    dataManager.exportSheetId($routeParams.sheetId);
+    dataManager.exportSheet($routeParams.sheetId);
   };
 
   this.resetSheet = function() {

@@ -90,7 +90,6 @@
   }
 
   function createCharacter(sheet, res) {
-    console.log(sheet);
     sheet.id = shortid.generate();
     getAll().then(function(result) {
       return addOne(result, sheet);
@@ -142,9 +141,15 @@
     .then(function(resolve) {
       return getOne(req.params.id, resolve);
     })
-    .then(function(resolve) {
-      console.log(resolve);
-      return sendBackFile(resolve);
+    .then(function(jsonToSend) {
+      var fileName = jsonToSend.name.replace(/\s/g, '') + '.json';
+      storage.setItem(fileName, [jsonToSend])
+      .then(function() {
+        res.download('./persist/' + fileName, fileName);
+      })
+      .finally(function() {
+        storage.removeItem(fileName);
+      })
     }, function(reject) {
       res.status(400).send(reject);
     });
