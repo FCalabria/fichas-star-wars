@@ -52,6 +52,10 @@ angular.module('fichasStarWarsApp')
     this.editMode = false;
   };
 
+  this.exportSheet = function() {
+    dataManager.exportSheetId($routeParams.sheetId);
+  };
+
   this.resetSheet = function() {
     $scope.vmSheet.character = angular.copy(swsc.create($scope.ch));
   };

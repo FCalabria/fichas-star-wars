@@ -15,6 +15,7 @@ angular.module('fichasStarWarsApp')
         saveCb : '&',
         cancelCb : '&',
         editCb : '&',
+        exportCb : '&',
         resetCb : '&',
         deleteCb : '&'
       },
@@ -31,6 +32,9 @@ angular.module('fichasStarWarsApp')
         this.cancel = function() {
           this.editMode = false;
           $scope.cancelCb();
+        };
+        this.export = function() {
+          $scope.exportCb();
         };
         this.reset = function() {
           this.editMode = true;
@@ -51,6 +55,7 @@ angular.module('fichasStarWarsApp')
         if (attrs.cancelCb) { scope.cancelShow = true; }
         if (attrs.editCb) { scope.editShow = true; }
         if (attrs.saveCb) { scope.saveShow = true; }
+        if (attrs.exportCb) { scope.exportShow = true; }
         if (attrs.resetCb) { scope.resetShow = true; }
         if (attrs.deleteCb) { scope.deleteShow = true; }
       }

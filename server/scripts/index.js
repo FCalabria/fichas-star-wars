@@ -90,6 +90,7 @@
   }
 
   function createCharacter(sheet, res) {
+    console.log(sheet);
     sheet.id = shortid.generate();
     getAll().then(function(result) {
       return addOne(result, sheet);
@@ -136,6 +137,19 @@
     });
   });
 
+  router.get('/api/sheets/export/:id', function(req, res) {
+    getAll()
+    .then(function(resolve) {
+      return getOne(req.params.id, resolve);
+    })
+    .then(function(resolve) {
+      console.log(resolve);
+      return sendBackFile(resolve);
+    }, function(reject) {
+      res.status(400).send(reject);
+    });
+  });
+
   router.post('/api/sheets', function(req, res) {
     var sheet = req.body;
     createCharacter(sheet, res);
@@ -166,11 +180,13 @@
     });
   });
 
-  router.delete('/api/sheets/all', function(req, res) {
-    storage.removeItem('sheets').then(function() {
-      res.send('All sheets deleted');
-    }, function(error) {
-      res.status(400).send(error);
+  router.delete('/api/sheets', function(req, res) {
+    return storage.removeItem('sheets', function(error) {
+      if (error) {
+        res.status(400).send(error);
+      } else {
+        res.send('All sheets deleted');
+      }
     });
   });
 

@@ -3,6 +3,7 @@
     <button type="button" class="btn btn-primary" ng-show="!vm.editMode && editShow" ng-click="vm.edit()">Editar ficha</button>
     <button type="button" class="btn btn-primary" ng-show="vm.editMode && saveShow" ng-click="vm.save()">Guardar</button>
     <button type="button" class="btn btn-default" ng-show="vm.editMode && cancelShow" ng-click="vm.cancel()">Cancelar</button>
+    <button type="button" class="btn btn-default" ng-show="!vm.editMode && exportShow" ng-click="vm.export()">Exportar</button>
     <button type="button" class="btn btn-default" ng-show="vm.editMode && resetShow" ng-click="vm.reset()">Resetear</button>
     <button type="button" class="btn btn-default" ng-show="!vm.editMode && deleteShow" ng-click="vm.delete()">Borrar ficha</button>
     <button type="button" class="btn btn-default disabled" ng-click="vm.goToTop()">Ir arriba</button>

@@ -32,6 +32,9 @@ angular.module('fichasStarWarsApp')
       },
       importSheet: function(file) {
         return http.post(sheetsUrl + '/import', file);
+      },
+      exportSheet: function(sheetId) {
+        return http.get(sheetsUrl + '/export/' + sheetId);
       }
     };
   });
