@@ -8,7 +8,7 @@
 * Factory in the fichasStarWarsUtils.
 */
 angular.module('starWarsCharacter')
-.factory('swsp', function (_) {
+.factory('swsPoints', function (_) {
   var usedSpecialPoints = function(raceChar, gifts, defaults) {
     var usedPoints = 0;
     var i = 0;

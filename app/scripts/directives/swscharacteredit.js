@@ -11,7 +11,7 @@ angular.module('fichasStarWarsApp')
     return {
       templateUrl: 'scripts/directives/swscharacteredit.tpl.html',
       restrict: 'E',
-      controller: function($scope, $http, swsc, swsp) {
+      controller: function($scope, $http, swsc) {
         var vmSheet = this;
         var totalHabPts = 0;
 
@@ -37,10 +37,10 @@ angular.module('fichasStarWarsApp')
         this.changeAttr = function(character) {
             calcDesPoints(character);
             var att = character.attributes;
-            this.character.attributes.foBase = swsc.calcFO(att.for[0], character.scale);
-            this.character.attributes.fdBase = swsc.calcFD(att.for[0], character.scale);
-            this.character.attributes.ini = swsc.calcIni(att.des[0], att.per[0]);
-            this.character.attributes.mov = swsc.calcMov(att.des[0], att.per[0]);
+            this.character.attributes.foBase[0] = swsc.calcFO(att.for[0], character.scale);
+            this.character.attributes.fdBase[0] = swsc.calcFD(att.for[0], character.scale);
+            this.character.attributes.ini[0] = swsc.calcIni(att.des[0], att.per[0]);
+            this.character.attributes.mov[0] = swsc.calcMov(att.des[0], att.per[0]);
             this.character.healthAndFatigue = swsc.calcHaF(att.for[0], att.des[0]);
             this.character = swsc.calcBaseHab(this.character, 'des');
             this.character = swsc.calcBaseHab(this.character, 'con');
@@ -68,12 +68,12 @@ angular.module('fichasStarWarsApp')
           });
           if (i !== -1) {
             array.splice(i, 1);
-            this.character = swsp.assignSpecialPoints(this.character);
+            this.character = swsc.assignSpecialPoints(this.character);
           }
         };
         this.changeSpecial = function(character) {
           this.desPts = calcDesPoints(character);
-          this.character = swsp.assignSpecialPoints(character);
+          this.character = swsc.assignSpecialPoints(character);
         };
         this.addWeapon = function() {
           this.character.weapons.push({
@@ -103,14 +103,14 @@ angular.module('fichasStarWarsApp')
         var calcDesPoints = function(character) {
           var points = 10;
           if (character.sensitive) {--points;}
-          var totalAttr = swsp.usedAttrPoints(character.attributes);
-          var totalSpecial = swsp.usedSpecialPoints(character.raceChar, character.gifts, character.defaults);
+          var totalAttr = swsc.usedAttrPoints(character.attributes);
+          var totalSpecial = swsc.usedSpecialPoints(character.raceChar, character.gifts, character.defaults);
           points = points - totalAttr - totalSpecial;
           if (vmSheet.hasOwnProperty('desPts')) {vmSheet.desPts = points;}
           return points;
         };
         var calcHabPoints = function(character) {
-          return totalHabPts - swsp.usedHabPoints(character);
+          return totalHabPts - swsc.usedHabPoints(character);
         };
         var getAttrAndHab = function() {
            $http.get('./scripts/directives/attributes-list.json').then(

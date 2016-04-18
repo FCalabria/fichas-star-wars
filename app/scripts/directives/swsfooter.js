@@ -20,7 +20,7 @@ angular.module('fichasStarWarsApp')
         deleteCb : '&'
       },
       controller: function($location, $anchorScroll, $scope) {
-        this.editMode = $location.url() === '/create';
+        this.editMode = $location.url().indexOf('/create') !== -1;
         this.edit = function() {
           this.editMode = true;
           $scope.editCb();

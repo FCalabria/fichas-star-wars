@@ -29,6 +29,7 @@ angular.module('fichasStarWarsApp')
   if($routeParams.sheetId) {
     dataManager.getSheet({'id': $routeParams.sheetId}).then(
       function(success) {
+        console.log(success.data);
         $scope.ch = success.data;
       }
     );

@@ -1,79 +1,80 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(.) styles/vendor.css -->
-    <!-- bower:css -->
-    <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="/styles/bootstrap-superhero.css">
-    <link rel="stylesheet" href="/styles/main.css">
-    <!-- endbuild -->
-  </head>
-  <body ng-app="fichasStarWarsApp">
-    <!--[if lte IE 8]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css(.) styles/vendor.css -->
+  <!-- bower:css -->
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="/styles/bootstrap-superhero.css">
+  <link rel="stylesheet" href="/styles/main.css">
+  <!-- endbuild -->
+</head>
+<body ng-app="fichasStarWarsApp">
+  <!--[if lte IE 8]>
+  <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
 
-    <!-- Add your site or application content here -->
-    <base href="/">
-    <a id="top" class="hidden"></a>
-    <sws-navbar></sws-navbar>
+  <!-- Add your site or application content here -->
+  <base href="/">
+  <a id="top" class="hidden"></a>
+  <sws-navbar></sws-navbar>
 
-    <div class="container">
-      <div ng-view></div>
-    </div>
+  <div class="container">
+    <div ng-view></div>
+  </div>
 
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
-       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
-       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
-       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
-       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+  <script>
+  !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+    (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+    r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+  }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');
-    </script>
+  ga('create', 'UA-XXXXX-X');
+  ga('send', 'pageview');
+  </script>
 
-    <!-- build:js(.) scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <script src="/bower_components/angular/angular.js"></script>
-    <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="/bower_components/angular-animate/angular-animate.js"></script>
-    <script src="/bower_components/angular-cookies/angular-cookies.js"></script>
-    <script src="/bower_components/angular-resource/angular-resource.js"></script>
-    <script src="/bower_components/angular-route/angular-route.js"></script>
-    <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="/bower_components/angular-touch/angular-touch.js"></script>
-    <script src="/bower_components/lodash/lodash.js"></script>
-    <script src="/bower_components/angular-repeat-n/dist/angular-repeat-n.js"></script>
-    <script src="/bower_components/angular-translate/angular-translate.js"></script>
-    <script src="/bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
-    <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-    <script src="/bower_components/ng-file-upload/ng-file-upload.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
+  <!-- build:js(.) scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="/bower_components/jquery/dist/jquery.js"></script>
+  <script src="/bower_components/angular/angular.js"></script>
+  <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="/bower_components/angular-animate/angular-animate.js"></script>
+  <script src="/bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="/bower_components/angular-resource/angular-resource.js"></script>
+  <script src="/bower_components/angular-route/angular-route.js"></script>
+  <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="/bower_components/angular-touch/angular-touch.js"></script>
+  <script src="/bower_components/lodash/lodash.js"></script>
+  <script src="/bower_components/angular-repeat-n/dist/angular-repeat-n.js"></script>
+  <script src="/bower_components/angular-translate/angular-translate.js"></script>
+  <script src="/bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+  <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="/bower_components/ng-file-upload/ng-file-upload.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="/scripts/app.js"></script>
-        <script src="/scripts/controllers/create.js"></script>
-        <script src="/scripts/controllers/list.js"></script>
-        <script src="/scripts/controllers/confirm-modal.js"></script>
-        <script src="/scripts/controllers/import.js"></script>
-        <script src="/scripts/directives/swsnavbar.js"></script>
-        <script src="/scripts/directives/swsfooter.js"></script>
-        <script src="/scripts/directives/swscharactersheet.js"></script>
-        <script src="/scripts/directives/swscharacteredit.js"></script>
-        <script src="/scripts/services/datamanager.js"></script>
-        <script src="/scripts/services/character.js"></script>
-        <script src="/scripts/services/points.js"></script>
-        <!-- endbuild -->
+  <!-- build:js({.tmp,app}) scripts/scripts.js -->
+  <script src="/scripts/app.js"></script>
+  <script src="/scripts/controllers/create.js"></script>
+  <script src="/scripts/controllers/list.js"></script>
+  <script src="/scripts/controllers/confirm-modal.js"></script>
+  <script src="/scripts/controllers/import.js"></script>
+  <script src="/scripts/directives/swsnavbar.js"></script>
+  <script src="/scripts/directives/swsfooter.js"></script>
+  <script src="/scripts/directives/swscharactersheet.js"></script>
+  <script src="/scripts/directives/swscharacteredit.js"></script>
+  <script src="/scripts/services/datamanager.js"></script>
+  <script src="/scripts/services/character.js"></script>
+  <script src="/scripts/services/calculator.js"></script>
+  <script src="/scripts/services/points.js"></script>
+  <!-- endbuild -->
 </body>
 </html>
