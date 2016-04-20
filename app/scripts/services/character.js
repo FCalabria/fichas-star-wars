@@ -121,6 +121,7 @@ angular.module('starWarsCharacter', [])
 
   return {
     create: function(charact) {
+      charact = charact || {};
       if(charact.sensitive && !charact.hasOwnProperty('forcePts')) {charact.forcePts = 8;}
       charact = _.merge(emptyChar, charact);
 

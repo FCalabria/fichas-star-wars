@@ -58,7 +58,7 @@ angular.module('fichasStarWarsApp')
   };
 
   this.resetSheet = function() {
-    $scope.vmSheet.character = angular.copy(swsc.create($scope.ch));
+    $scope.chEdit = angular.copy(swsc.create($scope.ch));
   };
 
   this.deleteSheet = function() {

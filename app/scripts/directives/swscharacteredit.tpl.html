@@ -20,61 +20,61 @@
           <div class="form-group col-xs-12 col-sm-8">
             <label for="name" class="control-label col-xs-4 col-sm-3">Imagen (url):</label>
             <div class="col-xs-8 col-sm-9">
-              <input type="text" class="form-control" id="imgUrl" ng-model="vmSheet.character.imgUrl">
+              <input type="text" class="form-control" id="imgUrl" ng-model="ch.imgUrl">
             </div>
           </div>
           <div class="form-group hidden-xs col-sm-4" id="ch-image">
-            <img ng-src="{{vmSheet.character.imgUrl}}" alt="{{vmSheet.character.name}}" class="img-responsive pull-right"/>
+            <img ng-src="{{ch.imgUrl}}" alt="{{ch.name}}" class="img-responsive pull-right"/>
           </div>
           <div class="form-group col-xs-12">
             <label for="description" class="control-label col-xs-4 col-sm-2">Descripción:</label>
             <div class="col-xs-8 col-sm-10">
-              <textarea class="form-control" id="player" ng-model="vmSheet.character.description"></textarea>
+              <textarea class="form-control" id="player" ng-model="ch.description"></textarea>
             </div>
           </div>
           <div class="form-group col-xs-12 col-sm-6">
             <label for="player" class="control-label col-xs-4">Nombre del jugador:</label>
             <div class="col-xs-8">
-              <input type="text" class="form-control" id="player" ng-model="vmSheet.character.player">
+              <input type="text" class="form-control" id="player" ng-model="ch.player">
             </div>
           </div>
           <div class="form-group col-xs-12 col-sm-6">
             <label for="name" class="control-label col-xs-4">Nombre del personje:</label>
             <div class="col-xs-8">
-              <input type="text" class="form-control" id="name" ng-model="vmSheet.character.name">
+              <input type="text" class="form-control" id="name" ng-model="ch.name">
             </div>
           </div>
           <div class="form-group col-xs-12 col-sm-6">
             <label for="race" class="control-label col-xs-4">Raza:</label>
             <div class="col-xs-8">
-              <input type="text" class="form-control" id="race" ng-model="vmSheet.character.race">
+              <input type="text" class="form-control" id="race" ng-model="ch.race">
             </div>
           </div>
           <div class="form-group col-xs-12 col-sm-6">
             <label for="height" class="control-label col-xs-3">Altura:</label>
             <div class="col-xs-3">
-              <input type="number" class="form-control" id="height" ng-model="vmSheet.character.height">
+              <input type="number" class="form-control" id="height" ng-model="ch.height">
             </div>
             <label for="weight" class="control-label col-xs-3">Peso:</label>
             <div class="col-xs-3">
-              <input type="number" class="form-control" id="weight" ng-model="vmSheet.character.weight">
+              <input type="number" class="form-control" id="weight" ng-model="ch.weight">
             </div>
           </div>
           <div class="form-group col-xs-12 col-sm-4">
             <div class="checkbox right-checkbox">
-              <label class="control-label">Sensible a la fuerza <input type="checkbox" ng-model="vmSheet.character.sensitive" ng-change="vmSheet.changeSensitive()"></label>
+              <label class="control-label">Sensible a la fuerza <input type="checkbox" ng-model="ch.sensitive" ng-change="vmSheet.changeSensitive()"></label>
             </div>
           </div>
           <div class="col-xs-6 col-sm-4">
             <p>
               <span class="bold">Puntos del lado luminoso: </span>
-              <span ng-bind="vmSheet.character.forcePts"></span>
+              <span ng-bind="ch.forcePts"></span>
             </p>
           </div>
           <div class="col-xs-6 col-sm-4">
             <p>
               <span class="bold">Puntos del lado oscuro: </span>
-              <span ng-bind="vmSheet.character.darKSidePts"></span>
+              <span ng-bind="ch.darKSidePts"></span>
             </p>
           </div>
         </form>
@@ -92,29 +92,29 @@
           <div class="form-group col-xs-12">
             <label for="att-des" class="control-label col-xs-3">Destreza:</label>
             <div class="col-xs-1">
-              <input type="number" step="1" min="-4" max="4" class="form-control" id="att-des" ng-model="vmSheet.character.attributes.des[0]" ng-change="vmSheet.changeAttr(vmSheet.character)">
+              <input type="number" step="1" min="-4" max="4" class="form-control" id="att-des" ng-model="ch.attributes.des[0]" ng-change="vmSheet.changeAttr(ch)">
             </div>
             <label for="att-con" class="control-label col-xs-3">Conocimientos:</label>
             <div class="col-xs-1">
-              <input type="number" step="1" min="-4" max="4" class="form-control" id="att-con" ng-model="vmSheet.character.attributes.con[0]" ng-change="vmSheet.changeAttr(vmSheet.character)">
+              <input type="number" step="1" min="-4" max="4" class="form-control" id="att-con" ng-model="ch.attributes.con[0]" ng-change="vmSheet.changeAttr(ch)">
             </div>
             <label for="att-mec" class="control-label col-xs-3">Mecánica:</label>
             <div class="col-xs-1">
-              <input type="number" step="1" min="-4" max="4" class="form-control" id="att-mec" ng-model="vmSheet.character.attributes.mec[0]" ng-change="vmSheet.changeAttr(vmSheet.character)">
+              <input type="number" step="1" min="-4" max="4" class="form-control" id="att-mec" ng-model="ch.attributes.mec[0]" ng-change="vmSheet.changeAttr(ch)">
             </div>
           </div>
           <div class="form-group col-xs-12">
             <label for="att-per" class="control-label col-xs-3">Percepcion:</label>
             <div class="col-xs-1">
-              <input type="number" step="1" min="-4" max="4" class="form-control" id="att-per" ng-model="vmSheet.character.attributes.per[0]" ng-change="vmSheet.changeAttr(vmSheet.character)">
+              <input type="number" step="1" min="-4" max="4" class="form-control" id="att-per" ng-model="ch.attributes.per[0]" ng-change="vmSheet.changeAttr(ch)">
             </div>
             <label for="att-for" class="control-label col-xs-3">Fortaleza:</label>
             <div class="col-xs-1">
-              <input type="number" step="1" min="-4" max="4" class="form-control" id="att-for" ng-model="vmSheet.character.attributes.for[0]" ng-change="vmSheet.changeAttr(vmSheet.character)">
+              <input type="number" step="1" min="-4" max="4" class="form-control" id="att-for" ng-model="ch.attributes.for[0]" ng-change="vmSheet.changeAttr(ch)">
             </div>
             <label for="att-tec" class="control-label col-xs-3">Técnica:</label>
             <div class="col-xs-1">
-              <input type="number" step="1" min="-4" max="4" class="form-control" id="att-tec" ng-model="vmSheet.character.attributes.tec[0]" ng-change="vmSheet.changeAttr(vmSheet.character)">
+              <input type="number" step="1" min="-4" max="4" class="form-control" id="att-tec" ng-model="ch.attributes.tec[0]" ng-change="vmSheet.changeAttr(ch)">
             </div>
           </div>
         </form>
@@ -123,13 +123,13 @@
             <div class="col-xs-6">
               <p>
                 <span class="bold">Factor ofensivo base: </span>
-                <span ng-bind="vmSheet.character.attributes.foBase[0]"></span>
+                <span ng-bind="ch.attributes.foBase[0]"></span>
               </p>
             </div>
             <div class="col-xs-6">
               <p>
                 <span class="bold">Factor defensivo base: </span>
-                <span ng-bind="vmSheet.character.attributes.fdBase[0]"></span>
+                <span ng-bind="ch.attributes.fdBase[0]"></span>
               </p>
             </div>
           </div>
@@ -137,13 +137,13 @@
             <div class="col-xs-6">
               <p>
                 <span class="bold">Iniciativa: </span>
-                <span ng-bind="vmSheet.character.attributes.ini[0]"></span>
+                <span ng-bind="ch.attributes.ini[0]"></span>
               </p>
             </div>
             <div class="col-xs-6">
               <p>
                 <span class="bold">Movimiento: </span>
-                <span ng-bind="vmSheet.character.attributes.mov[0]"></span>
+                <span ng-bind="ch.attributes.mov[0]"></span>
               </p>
             </div>
           </div>
@@ -162,20 +162,20 @@
           <table class="table stripped-table">
             <tr>
               <th>Rastreo</th>
-              <td ng-repeat="cell in vmSheet.character.healthAndFatigue" class="text-center">
+              <td ng-repeat="cell in ch.healthAndFatigue" class="text-center">
                 <span ng-bind="cell.trackingFrom"></span>
                 <span ng-if="cell.trackingTo"> - {{cell.trackingTo}}</span>
               </td>
             </tr>
             <tr>
               <th>Heridas</th>
-              <td ng-repeat="cell in vmSheet.character.healthAndFatigue" class="text-center">
+              <td ng-repeat="cell in ch.healthAndFatigue" class="text-center">
                 <span ng-repeat-n="cell.points">O</span>
               </td>
             </tr>
             <tr>
               <th>Fatiga</th>
-              <td ng-repeat="cell in vmSheet.character.healthAndFatigue" class="text-center">
+              <td ng-repeat="cell in ch.healthAndFatigue" class="text-center">
                 <span ng-repeat-n="cell.points">O</span>
               </td>
             </tr>
@@ -191,27 +191,27 @@
     </div>
     <div class="panel-body" uib-collapse="chHabilitiesCollapsed">
       <div class="row">
-        <div class="col-xs-12 nowrap-labels" ng-repeat="(key, value) in vmSheet.character.habilities" ng-if="$index < 6">
+        <div class="col-xs-12 nowrap-labels" ng-repeat="(key, value) in ch.habilities" ng-if="$index < 6">
           <p>Habilidades dependientes de <span class="force-lowercase text-warning">{{'habilities-translations.' + key + '.main' | translate}}</span></p>
           <form class="form-horizontal">
             <div class="row">
               <div class="form-group col-xs-6 col-sm-4" ng-repeat="(hab, val) in value">
                 <label for="{{hab}}" class="control-label col-xs-8">{{'habilities-translations.' + key + '.' + hab | translate}}:</label>
                 <div class="col-xs-4">
-                  <input type="number" min="-4" max="4" class="form-control" id="{{hab}}" ng-model="vmSheet.character.habilities[key][hab][0]" ng-disabled="hab === 'sableDeLuz' && !vmSheet.character.sensitive" ng-change="vmSheet.changeHab(vmSheet.character)">
+                  <input type="number" min="-4" max="4" class="form-control" id="{{hab}}" ng-model="ch.habilities[key][hab][0]" ng-disabled="hab === 'sableDeLuz' && !ch.sensitive" ng-change="vmSheet.changeHab(ch)">
                 </div>
               </div>
             </div>
           </form>
         </div>
-        <div class="col-xs-12 nowrap-labels" ng-if="vmSheet.character.sensitive">
+        <div class="col-xs-12 nowrap-labels" ng-if="ch.sensitive">
           <p>Habilidades de la <span class="force-lowercase text-warning">fuerza</span></p>
           <form class="form-horizontal">
             <div class="row">
-              <div class="form-group col-xs-6 col-sm-4" ng-repeat="(hab, val) in vmSheet.character.habilities.force">
+              <div class="form-group col-xs-6 col-sm-4" ng-repeat="(hab, val) in ch.habilities.force">
                 <label for="{{hab}}" class="control-label col-xs-8">{{'habilities-translations.force.' + hab | translate}}:</label>
                 <div class="col-xs-4">
-                  <input type="number" min="-4" max="4" class="form-control" id="{{hab}}" ng-model="vmSheet.character.habilities.force[hab][0]" ng-change="vmSheet.changeHab(vmSheet.character)">
+                  <input type="number" min="-4" max="4" class="form-control" id="{{hab}}" ng-model="ch.habilities.force[hab][0]" ng-change="vmSheet.changeHab(ch)">
                 </div>
               </div>
             </div>
@@ -241,7 +241,7 @@
               <th>Coste</th>
               <th><button type="button" name="button" class="btn btn-success" ng-click="vmSheet.addSpecial('gifts')">Añadir</button></th>
             </tr>
-            <tr ng-repeat="gift in vmSheet.character.gifts">
+            <tr ng-repeat="gift in ch.gifts">
               <td>
                 <input type="text" class="form-control" ng-model="gift.name">
               </td>
@@ -249,13 +249,13 @@
                 <input type="text" class="form-control" ng-model="gift.description">
               </td>
               <td>
-                <select class="form-control" ng-model="gift.effect[0]" ng-change="vmSheet.changeSpecial(vmSheet.character)" ng-options="hability.key as hability.translation | translate for hability in vmSheet.attributesAndHabilities | orderBy : 'translation | translate' "></select>
+                <select class="form-control" ng-model="gift.effect[0]" ng-change="vmSheet.changeSpecial(ch)" ng-options="hability.key as hability.translation | translate for hability in vmSheet.attributesAndHabilities | orderBy : 'translation | translate' "></select>
               </td>
               <td>
-                <input type="number" min="-4" max="4" class="form-control" ng-model="gift.effect[1]" ng-change="vmSheet.changeSpecial(vmSheet.character)">
+                <input type="number" min="-4" max="4" class="form-control" ng-model="gift.effect[1]" ng-change="vmSheet.changeSpecial(ch)">
               </td>
               <td>
-                <input type="number" min="-2" max="2" class="form-control" ng-model="gift.cost" ng-change="vmSheet.changeSpecial(vmSheet.character)">
+                <input type="number" min="-2" max="2" class="form-control" ng-model="gift.cost" ng-change="vmSheet.changeSpecial(ch)">
               </td>
               <td>
                 <button type="button" name="button" class="btn btn-danger" ng-click="vmSheet.deleteSpecial('gifts', gift)">Eliminar</button>
@@ -278,7 +278,7 @@
             <th>Coste</th>
             <th><button type="button" name="button" class="btn btn-success" ng-click="vmSheet.addSpecial('defaults')">Añadir</button></th>
           </tr>
-          <tr ng-repeat="default in vmSheet.character.defaults">
+          <tr ng-repeat="default in ch.defaults">
             <td>
               <input type="text" class="form-control" ng-model="default.name">
             </td>
@@ -286,13 +286,13 @@
               <input type="text" class="form-control" ng-model="default.description">
             </td>
             <td>
-              <select class="form-control" ng-model="default.effect[0]" ng-change="vmSheet.changeSpecial(vmSheet.character)" ng-options="hability.key as hability.translation | translate for hability in vmSheet.attributesAndHabilities | orderBy : 'translation | translate' "></select>
+              <select class="form-control" ng-model="default.effect[0]" ng-change="vmSheet.changeSpecial(ch)" ng-options="hability.key as hability.translation | translate for hability in vmSheet.attributesAndHabilities | orderBy : 'translation | translate' "></select>
             </td>
             <td>
-              <input type="number" min="-4" max="4" class="form-control" ng-model="default.effect[1]" ng-change="vmSheet.changeSpecial(vmSheet.character)">
+              <input type="number" min="-4" max="4" class="form-control" ng-model="default.effect[1]" ng-change="vmSheet.changeSpecial(ch)">
             </td>
             <td>
-              <input type="number" min="-2" max="2" class="form-control" ng-model="default.cost" ng-change="vmSheet.changeSpecial(vmSheet.character)">
+              <input type="number" min="-2" max="2" class="form-control" ng-model="default.cost" ng-change="vmSheet.changeSpecial(ch)">
             </td>
             <td>
               <button type="button" name="button" class="btn btn-danger" ng-click="vmSheet.deleteSpecial('defaults', default)">Eliminar</button>
@@ -315,7 +315,7 @@
           <th>Coste</th>
           <th><button type="button" name="button" class="btn btn-success" ng-click="vmSheet.addSpecial('raceChar')">Añadir</button></th>
         </tr>
-        <tr ng-repeat="raceChar in vmSheet.character.raceChar">
+        <tr ng-repeat="raceChar in ch.raceChar">
           <td>
             <input type="text" class="form-control" ng-model="raceChar.name">
           </td>
@@ -323,13 +323,13 @@
             <input type="text" class="form-control" ng-model="raceChar.description">
           </td>
           <td>
-            <select class="form-control" ng-model="raceChar.effect[0]" ng-change="vmSheet.changeSpecial(vmSheet.character)" ng-options="hability.key as hability.translation | translate for hability in vmSheet.attributesAndHabilities | orderBy : 'translation | translate' "></select>
+            <select class="form-control" ng-model="raceChar.effect[0]" ng-change="vmSheet.changeSpecial(ch)" ng-options="hability.key as hability.translation | translate for hability in vmSheet.attributesAndHabilities | orderBy : 'translation | translate' "></select>
           </td>
           <td>
-            <input type="number" min="-4" max="4" class="form-control" ng-model="raceChar.effect[1]" ng-change="vmSheet.changeSpecial(vmSheet.character)">
+            <input type="number" min="-4" max="4" class="form-control" ng-model="raceChar.effect[1]" ng-change="vmSheet.changeSpecial(ch)">
           </td>
           <td>
-            <input type="number" min="-2" max="2" class="form-control" ng-model="raceChar.cost" ng-change="vmSheet.changeSpecial(vmSheet.character)">
+            <input type="number" min="-2" max="2" class="form-control" ng-model="raceChar.cost" ng-change="vmSheet.changeSpecial(ch)">
           </td>
           <td>
             <button type="button" name="button" class="btn btn-danger" ng-click="vmSheet.deleteSpecial('raceChar', raceChar)">Eliminar</button>
@@ -361,7 +361,7 @@
             <th>Notas/descripción</th>
             <th><button type="button" name="button" class="btn btn-success" ng-click="vmSheet.addWeapon()">Añadir</button></th>
           </tr>
-          <tr ng-repeat="item in vmSheet.character.weapons">
+          <tr ng-repeat="item in ch.weapons">
             <td>
               <input type="text" class="form-control" ng-model="item.name">
             </td>
@@ -394,7 +394,7 @@
             <th>Notas/descripción</th>
             <th><button type="button" name="button" class="btn btn-success" ng-click="vmSheet.addArmour()">Añadir</button></th>
           </tr>
-          <tr ng-repeat="item in vmSheet.character.armour">
+          <tr ng-repeat="item in ch.armour">
             <td>
               <input type="text" class="form-control" ng-model="item.name">
             </td>
@@ -422,7 +422,7 @@
             <th>Descripción</th>
             <th><button type="button" name="button" class="btn btn-success" ng-click="vmSheet.addEquipment()">Añadir</button></th>
           </tr>
-          <tr ng-repeat="item in vmSheet.character.equipment">
+          <tr ng-repeat="item in ch.equipment">
             <td>
               <input type="text" class="form-control" ng-model="item.name">
             </td>

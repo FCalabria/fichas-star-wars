@@ -23,7 +23,6 @@ angular.module('fichasStarWarsApp')
 
     this.resetSheet = function() {
       $scope.ch = {};
-      $scope.vmSheet.character = swsc.create($scope.ch);
     };
 
   });

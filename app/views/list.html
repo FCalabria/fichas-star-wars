@@ -1,7 +1,7 @@
 <div class="row">
   <div class="sws-main-container">
     <sws-character-sheet ng-hide="vm.editMode" class="container-fluid" character="ch"></sws-character-sheet>
-    <sws-character-edit ng-show="vm.editMode" class="container-fluid"></sws-character-edit>
+    <sws-character-edit ng-show="vm.editMode" class="container-fluid" character="chEdit"></sws-character-edit>
   </div>
   <sws-footer class="container-fluid" edit-cb="vm.editSheet()" save-cb="vm.saveSheet()" cancel-cb="vm.cancelSheet()" export-cb="vm.exportSheet()" reset-cb="vm.resetSheet()" delete-cb="vm.deleteSheet()"></sws-footer>
 </div>
