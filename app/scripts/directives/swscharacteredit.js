@@ -33,6 +33,10 @@ angular.module('fichasStarWarsApp')
         };
         this.changeSensitive = function() {
           if ($scope.ch.sensitive) {
+            if (this.desPts <= 0) {
+              $scope.ch.sensitive = false;
+              return;
+            };
             $scope.ch.forcePts = 8;
             this.desPts = calcDesPoints($scope.ch);
           } else {
@@ -40,11 +44,15 @@ angular.module('fichasStarWarsApp')
             this.desPts = calcDesPoints($scope.ch);
           }
         };
-        this.changeAttr = function(character) {
-            calcDesPoints(character);
-            var att = character.attributes;
-            $scope.ch.attributes.foBase[0] = swsc.calcFO(att.for[0], character.scale);
-            $scope.ch.attributes.fdBase[0] = swsc.calcFD(att.for[0], character.scale);
+        this.changeAttr = function(attribute) {
+          var att = $scope.ch.attributes;
+          if (calcDesPoints($scope.ch) < 0) {
+            att[attribute][0]--;
+            return;
+          }
+          this.desPts = calcDesPoints($scope.ch);
+            $scope.ch.attributes.foBase[0] = swsc.calcFO(att.for[0], $scope.ch.scale);
+            $scope.ch.attributes.fdBase[0] = swsc.calcFD(att.for[0], $scope.ch.scale);
             $scope.ch.attributes.ini[0] = swsc.calcIni(att.des[0], att.per[0]);
             $scope.ch.attributes.mov[0] = swsc.calcMov(att.des[0], att.per[0]);
             $scope.ch.healthAndFatigue = swsc.calcHaF(att.for[0], att.des[0]);
@@ -56,8 +64,12 @@ angular.module('fichasStarWarsApp')
             $scope.ch = swsc.calcBaseHab($scope.ch, 'tec');
             $scope.ch = swsc.calcBaseHab($scope.ch, 'force');
           };
-        this.changeHab = function(character) {
-          this.habPts = calcHabPoints(character);
+        this.changeHab = function(attribute, hability) {
+          if (calcHabPoints($scope.ch) < 0){
+            $scope.ch.habilities[attribute][hability][0]--;
+            return;
+          }
+          this.habPts = calcHabPoints($scope.ch);
         };
         this.addSpecial = function(field) {
           $scope.ch[field].push({
@@ -77,9 +89,14 @@ angular.module('fichasStarWarsApp')
             $scope.ch = swsc.assignSpecialPoints($scope.ch);
           }
         };
-        this.changeSpecial = function(character) {
-          this.desPts = calcDesPoints(character);
-          $scope.ch = swsc.assignSpecialPoints(character);
+        this.changeSpecial = function(type, special) {
+          // TODO: here you were;
+          /* if (calcDesPoints($scope.ch) < 0) {
+            _.find($scope.ch[type], special).cost--;
+            return;
+          } */
+          this.desPts = calcDesPoints($scope.ch);
+          $scope.ch = swsc.assignSpecialPoints($scope.ch);
         };
         this.addWeapon = function() {
           $scope.ch.weapons.push({
@@ -112,7 +129,7 @@ angular.module('fichasStarWarsApp')
           var totalAttr = swsc.usedAttrPoints(character.attributes);
           var totalSpecial = swsc.usedSpecialPoints(character.raceChar, character.gifts, character.defaults);
           points = points - totalAttr - totalSpecial;
-          if (vmSheet.hasOwnProperty('desPts')) {vmSheet.desPts = points;}
+          // if (vmSheet.hasOwnProperty('desPts')) {vmSheet.desPts = points;}
           return points;
         };
         var calcHabPoints = function(character) {
