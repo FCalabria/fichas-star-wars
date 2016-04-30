@@ -123,7 +123,7 @@ angular.module('starWarsCharacter', [])
     create: function(charact) {
       charact = charact || {};
       if(charact.sensitive && !charact.hasOwnProperty('forcePts')) {charact.forcePts = 8;}
-      charact = _.merge(emptyChar, charact);
+      _.defaultsDeep(charact, emptyChar);
 
       charact.attributes.foBase = [this.calcFO(charact.attributes.for[0], charact.scale), 0];
       charact.attributes.fdBase = [this.calcFD(charact.attributes.for[0], charact.scale), 0];
@@ -138,7 +138,7 @@ angular.module('starWarsCharacter', [])
       charact = this.calcBaseHab(charact, 'for');
       charact = this.calcBaseHab(charact, 'tec');
       charact = this.calcBaseHab(charact, 'force');
-
+      console.log(charact);
       return charact;
     },
     calcFO: swsCalculator.calcFO,

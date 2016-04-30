@@ -29,7 +29,6 @@ angular.module('fichasStarWarsApp')
   if($routeParams.sheetId) {
     dataManager.getSheet({'id': $routeParams.sheetId}).then(
       function(success) {
-        console.log(success.data);
         $scope.ch = success.data;
       }
     );
@@ -58,7 +57,7 @@ angular.module('fichasStarWarsApp')
   };
 
   this.resetSheet = function() {
-    $scope.chEdit = angular.copy(swsc.create($scope.ch));
+    $scope.chEdit = angular.copy($scope.ch);
   };
 
   this.deleteSheet = function() {

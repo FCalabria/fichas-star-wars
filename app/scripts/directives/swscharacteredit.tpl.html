@@ -92,29 +92,29 @@
           <div class="form-group col-xs-12">
             <label for="att-des" class="control-label col-xs-3">Destreza:</label>
             <div class="col-xs-1">
-              <input type="number" step="1" min="-4" max="4" class="form-control" id="att-des" ng-model="ch.attributes.des[0]" ng-change="vmSheet.changeAttr('des')">
+              <input type="number" step="1" min="-4" max="4" class="form-control" id="att-des" ng-model="ch.attributes.des[0]" ng-change="vmSheet.changeAttr()">
             </div>
             <label for="att-con" class="control-label col-xs-3">Conocimientos:</label>
             <div class="col-xs-1">
-              <input type="number" step="1" min="-4" max="4" class="form-control" id="att-con" ng-model="ch.attributes.con[0]" ng-change="vmSheet.changeAttr('con')">
+              <input type="number" step="1" min="-4" max="4" class="form-control" id="att-con" ng-model="ch.attributes.con[0]" ng-change="vmSheet.changeAttr()">
             </div>
             <label for="att-mec" class="control-label col-xs-3">Mecánica:</label>
             <div class="col-xs-1">
-              <input type="number" step="1" min="-4" max="4" class="form-control" id="att-mec" ng-model="ch.attributes.mec[0]" ng-change="vmSheet.changeAttr('mec')">
+              <input type="number" step="1" min="-4" max="4" class="form-control" id="att-mec" ng-model="ch.attributes.mec[0]" ng-change="vmSheet.changeAttr()">
             </div>
           </div>
           <div class="form-group col-xs-12">
             <label for="att-per" class="control-label col-xs-3">Percepcion:</label>
             <div class="col-xs-1">
-              <input type="number" step="1" min="-4" max="4" class="form-control" id="att-per" ng-model="ch.attributes.per[0]" ng-change="vmSheet.changeAttr('per')">
+              <input type="number" step="1" min="-4" max="4" class="form-control" id="att-per" ng-model="ch.attributes.per[0]" ng-change="vmSheet.changeAttr()">
             </div>
             <label for="att-for" class="control-label col-xs-3">Fortaleza:</label>
             <div class="col-xs-1">
-              <input type="number" step="1" min="-4" max="4" class="form-control" id="att-for" ng-model="ch.attributes.for[0]" ng-change="vmSheet.changeAttr('for')">
+              <input type="number" step="1" min="-4" max="4" class="form-control" id="att-for" ng-model="ch.attributes.for[0]" ng-change="vmSheet.changeAttr()">
             </div>
             <label for="att-tec" class="control-label col-xs-3">Técnica:</label>
             <div class="col-xs-1">
-              <input type="number" step="1" min="-4" max="4" class="form-control" id="att-tec" ng-model="ch.attributes.tec[0]" ng-change="vmSheet.changeAttr('tec')">
+              <input type="number" step="1" min="-4" max="4" class="form-control" id="att-tec" ng-model="ch.attributes.tec[0]" ng-change="vmSheet.changeAttr()">
             </div>
           </div>
         </form>
@@ -198,7 +198,7 @@
               <div class="form-group col-xs-6 col-sm-4" ng-repeat="(hab, val) in value">
                 <label for="{{hab}}" class="control-label col-xs-8">{{'habilities-translations.' + key + '.' + hab | translate}}:</label>
                 <div class="col-xs-4">
-                  <input type="number" min="-4" max="4" class="form-control" id="{{hab}}" ng-model="ch.habilities[key][hab][0]" ng-disabled="hab === 'sableDeLuz' && !ch.sensitive" ng-change="vmSheet.changeHab(key, hab)">
+                  <input type="number" min="-4" max="4" class="form-control" id="{{hab}}" ng-model="ch.habilities[key][hab][0]" ng-disabled="hab === 'sableDeLuz' && !ch.sensitive" ng-change="vmSheet.changeHab()">
                 </div>
               </div>
             </div>
@@ -211,7 +211,7 @@
               <div class="form-group col-xs-6 col-sm-4" ng-repeat="(hab, val) in ch.habilities.force">
                 <label for="{{hab}}" class="control-label col-xs-8">{{'habilities-translations.force.' + hab | translate}}:</label>
                 <div class="col-xs-4">
-                  <input type="number" min="-4" max="4" class="form-control" id="{{hab}}" ng-model="ch.habilities.force[hab][0]" ng-change="vmSheet.changeHab(ch)">
+                  <input type="number" min="-4" max="4" class="form-control" id="{{hab}}" ng-model="ch.habilities.force[hab][0]" ng-change="vmSheet.changeHab()">
                 </div>
               </div>
             </div>
@@ -249,7 +249,7 @@
                 <input type="text" class="form-control" ng-model="gift.description">
               </td>
               <td>
-                <select class="form-control" ng-model="gift.effect[0]" ng-change="vmSheet.changeSpecial(ch)" ng-options="hability.key as hability.translation | translate for hability in vmSheet.attributesAndHabilities | orderBy : 'translation | translate' "></select>
+                <select class="form-control" ng-model="gift.effect[0]" ng-change="vmSheet.changeSpecial()" ng-options="hability.key as hability.translation | translate for hability in vmSheet.attributesAndHabilities | orderBy : 'translation | translate' "></select>
               </td>
               <td>
                 <input type="number" min="-4" max="4" class="form-control" ng-model="gift.effect[1]" ng-change="vmSheet.changeSpecial(ch)">
@@ -286,7 +286,7 @@
               <input type="text" class="form-control" ng-model="default.description">
             </td>
             <td>
-              <select class="form-control" ng-model="default.effect[0]" ng-change="vmSheet.changeSpecial(ch)" ng-options="hability.key as hability.translation | translate for hability in vmSheet.attributesAndHabilities | orderBy : 'translation | translate' "></select>
+              <select class="form-control" ng-model="default.effect[0]" ng-change="vmSheet.changeSpecial()" ng-options="hability.key as hability.translation | translate for hability in vmSheet.attributesAndHabilities | orderBy : 'translation | translate' "></select>
             </td>
             <td>
               <input type="number" min="-4" max="4" class="form-control" ng-model="default.effect[1]" ng-change="vmSheet.changeSpecial(ch)">
@@ -323,7 +323,7 @@
             <input type="text" class="form-control" ng-model="raceChar.description">
           </td>
           <td>
-            <select class="form-control" ng-model="raceChar.effect[0]" ng-change="vmSheet.changeSpecial(ch)" ng-options="hability.key as hability.translation | translate for hability in vmSheet.attributesAndHabilities | orderBy : 'translation | translate' "></select>
+            <select class="form-control" ng-model="raceChar.effect[0]" ng-change="vmSheet.changeSpecial()" ng-options="hability.key as hability.translation | translate for hability in vmSheet.attributesAndHabilities | orderBy : 'translation | translate' "></select>
           </td>
           <td>
             <input type="number" min="-4" max="4" class="form-control" ng-model="raceChar.effect[1]" ng-change="vmSheet.changeSpecial(ch)">

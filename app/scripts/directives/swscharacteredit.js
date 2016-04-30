@@ -17,8 +17,11 @@ angular.module('fichasStarWarsApp')
       controller: function($scope, $http, swsc) {
         var vmSheet = this;
         var totalHabPts = 0;
+        var lastValidCharacter = swsc.create({});
         $scope.$watch('ch', function(newValue, oldValue) {
-          if (newValue && newValue !== oldValue) init();
+          if ((typeof newValue !== 'undefined' && typeof oldValue === 'undefined') || (_.isEmpty(newValue) && typeof newValue === 'object')) {
+            init();
+          }
         });
 
         this.removeHabPts = function() {
@@ -32,11 +35,8 @@ angular.module('fichasStarWarsApp')
           this.desPts -= 1;
         };
         this.changeSensitive = function() {
+          hasEnoughPoints();
           if ($scope.ch.sensitive) {
-            if (this.desPts <= 0) {
-              $scope.ch.sensitive = false;
-              return;
-            };
             $scope.ch.forcePts = 8;
             this.desPts = calcDesPoints($scope.ch);
           } else {
@@ -44,12 +44,9 @@ angular.module('fichasStarWarsApp')
             this.desPts = calcDesPoints($scope.ch);
           }
         };
-        this.changeAttr = function(attribute) {
+        this.changeAttr = function() {
+          hasEnoughPoints();
           var att = $scope.ch.attributes;
-          if (calcDesPoints($scope.ch) < 0) {
-            att[attribute][0]--;
-            return;
-          }
           this.desPts = calcDesPoints($scope.ch);
             $scope.ch.attributes.foBase[0] = swsc.calcFO(att.for[0], $scope.ch.scale);
             $scope.ch.attributes.fdBase[0] = swsc.calcFD(att.for[0], $scope.ch.scale);
@@ -64,11 +61,8 @@ angular.module('fichasStarWarsApp')
             $scope.ch = swsc.calcBaseHab($scope.ch, 'tec');
             $scope.ch = swsc.calcBaseHab($scope.ch, 'force');
           };
-        this.changeHab = function(attribute, hability) {
-          if (calcHabPoints($scope.ch) < 0){
-            $scope.ch.habilities[attribute][hability][0]--;
-            return;
-          }
+        this.changeHab = function() {
+          hasEnoughPoints();
           this.habPts = calcHabPoints($scope.ch);
         };
         this.addSpecial = function(field) {
@@ -89,12 +83,8 @@ angular.module('fichasStarWarsApp')
             $scope.ch = swsc.assignSpecialPoints($scope.ch);
           }
         };
-        this.changeSpecial = function(type, special) {
-          // TODO: here you were;
-          /* if (calcDesPoints($scope.ch) < 0) {
-            _.find($scope.ch[type], special).cost--;
-            return;
-          } */
+        this.changeSpecial = function() {
+          hasEnoughPoints();
           this.desPts = calcDesPoints($scope.ch);
           $scope.ch = swsc.assignSpecialPoints($scope.ch);
         };
@@ -129,11 +119,17 @@ angular.module('fichasStarWarsApp')
           var totalAttr = swsc.usedAttrPoints(character.attributes);
           var totalSpecial = swsc.usedSpecialPoints(character.raceChar, character.gifts, character.defaults);
           points = points - totalAttr - totalSpecial;
-          // if (vmSheet.hasOwnProperty('desPts')) {vmSheet.desPts = points;}
           return points;
         };
         var calcHabPoints = function(character) {
           return totalHabPts - swsc.usedHabPoints(character);
+        };
+        var hasEnoughPoints = function () {
+          // if (calcHabPoints($scope.ch) < 0 || calcDesPoints($scope.ch) < 0) {
+          //   $scope.ch = _.cloneDeep(lastValidCharacter);
+          // } else {
+          //   lastValidCharacter = _.cloneDeep($scope.ch);
+          // }
         };
         var getAttrAndHab = function() {
            $http.get('./scripts/directives/attributes-list.json').then(
@@ -148,12 +144,12 @@ angular.module('fichasStarWarsApp')
         }
 
         var init = function() {
-          $scope.ch = swsc.create($scope.character);
+          $scope.ch = swsc.create($scope.ch);
+          hasEnoughPoints();
           vmSheet.habPts = calcHabPoints($scope.ch);
           vmSheet.desPts = calcDesPoints($scope.ch);
           getAttrAndHab();
         }
-        init();
 
       },
       controllerAs: 'vmSheet'
