@@ -114,22 +114,20 @@ angular.module('fichasStarWarsApp')
           if (i !== -1) { $scope.ch[group].splice(i, 1); }
         };
         var calcDesPoints = function(character) {
-          var points = 10;
           if (character.sensitive) {--points;}
           var totalAttr = swsc.usedAttrPoints(character.attributes);
           var totalSpecial = swsc.usedSpecialPoints(character.raceChar, character.gifts, character.defaults);
-          points = points - totalAttr - totalSpecial;
-          return points;
+          return 10 - totalAttr - totalSpecial - Math.ceil(vmSheet.habPts/4);
         };
         var calcHabPoints = function(character) {
           return totalHabPts - swsc.usedHabPoints(character);
         };
         var hasEnoughPoints = function () {
-          // if (calcHabPoints($scope.ch) < 0 || calcDesPoints($scope.ch) < 0) {
-          //   $scope.ch = _.cloneDeep(lastValidCharacter);
-          // } else {
-          //   lastValidCharacter = _.cloneDeep($scope.ch);
-          // }
+          if (calcHabPoints($scope.ch) < 0 || calcDesPoints($scope.ch) < 0) {
+            $scope.ch = _.cloneDeep(lastValidCharacter);
+          } else {
+            lastValidCharacter = _.cloneDeep($scope.ch);
+          }
         };
         var getAttrAndHab = function() {
            $http.get('./scripts/directives/attributes-list.json').then(
